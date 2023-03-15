@@ -1,0 +1,142 @@
+<template>
+    <section>
+        <div class="container__account">
+            <div class="account">
+                <div class="account__avatar">
+                    <div class="account__image">
+                    </div>
+                    <button class="account__user-change">Стать экспертом</button>
+                </div>
+                <div class="account__info-user">
+                    <div class="account__block-user">
+                        <p class="account__name">Yasdary Das</p>
+                        <img src="~assets/images/icons/change-icon.png" alt="#">
+                    </div>
+                    <p class="account__mail">dasefimova@gmail.com</p>
+                    <div class="account__block-plants">
+                        <img src="~assets/images/icons/plants-icon.png" alt="#">
+                        <p class="account__quantity-plants">10 растений</p>
+                    </div>
+                    <p class="account__description">Всем привет! Я начинающий растениевод, успела посадить уже базилик и мяту!  
+                        В планах посадить еще много всего.</p>
+                </div>
+            </div>   
+        </div>
+    </section>
+</template>
+
+<script>
+export default {
+  name: 'Categories'
+}
+</script>
+
+<style scoped>
+.container__account{
+    width: 1000px;
+    height: auto;
+    margin-top: 90px;
+    margin-left: 170px;
+}
+
+.account{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.account__avatar{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 70px;
+}
+
+.account__info-user{
+    width: 630px;
+    margin-top: 60px;
+}
+
+.account__image{
+    width: 266px;
+    height: 266px;
+    background-color: gray;
+    border-radius: 100%;
+    border: 6px solid #C3E2EC;
+    margin-bottom: 40px;
+}
+
+.account__user-change{
+    background: #D8F0F8;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    width: 308px;
+    height: 40px;
+    border: none;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 99.5%;
+    letter-spacing: 0.4px;
+    color: #5D6062;
+    transition: all 0.5s;
+}
+
+.account__user-change:hover{
+    background: #BFE7F5;
+    transition: all 0.5s;
+}
+
+.account__name{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #4E4E4E;
+    text-transform: uppercase;
+}
+
+.account__mail{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    text-decoration-line: underline;
+    color: #4E4E4E;
+}
+
+.account__quantity-plants{
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #8A8A8E;
+}
+
+.account__description{
+    width: 90%;
+    font-size: 20px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #000000;
+    text-align: justify;
+}
+
+.account__block-user, .account__block-plants{
+    display: flex;
+}
+.account__block-user img{
+    margin-top: 7px;
+    margin-left: 15px;
+    width: 20px;
+    height: 22px;
+}
+.account__block-plants img{
+    width: 30px;
+    height: 28px;
+    margin-right: 8px;
+}
+</style>

@@ -6,12 +6,12 @@
              <form class="form-login" action="">
                 <div class="form-login__wrapper">
                    <input class="form-login__email" type="email" placeholder="E-mail">
-                   <img class="form-login__icon-login" src="~assets/images/mail.png" alt="#">
+                   <img class="form-login__icon-login" src="~assets/images/icons/mail.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
                    <input class="form-login__password" type="password" placeholder="Пароль">
-                   <img class="form-login__icon-password" src="~assets/images/key.png" alt="#">
-                   <img class="form-login__icon-eye" src="~assets/images/eye.png" alt="#">
+                   <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
+                   <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#">
                 </div>
                 <button class="form-login__button">Войти</button>
              </form>
@@ -177,6 +177,16 @@ export default {
   height: 100%;
 }
 
+
+@media (max-width: 1220px) {
+  .form-login__wrapper{
+    width: 55%;
+  } 
+  .form-login__button{
+    width: 51%;
+  } 
+}
+
 @media (max-width: 850px) {
   .container-start{
     flex-direction: column-reverse;
@@ -189,7 +199,7 @@ export default {
 
 @media (max-width: 480px) {
     .form-login__wrapper{
-        width: 80%;
+      width: 80%;
     }
   .form-login__email, .form-login__password{
     width: 100%;

@@ -6,25 +6,25 @@
              <form class="form-login" action="">
                 <div class="form-login__wrapper">
                    <input class="form-login__name" type="text" placeholder="Имя">
-                   <img class="form-login__icon-user" src="~assets/images/user.png" alt="#">
+                   <img class="form-login__icon-user" src="~assets/images/icons/user.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
                    <input class="form-login__surname" type="text" placeholder="Фамилия">
-                   <img class="form-login__icon_sur" src="~assets/images/user.png" alt="#">
+                   <img class="form-login__icon_sur" src="~assets/images/icons/user.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
                    <input class="form-login__email" type="email" placeholder="E-mail">
-                   <img class="form-login__icon-email" src="~assets/images/mail.png" alt="#">
+                   <img class="form-login__icon-email" src="~assets/images/icons/mail.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
                    <input class="form-login__password" type="password" placeholder="Пароль">
-                   <img class="form-login__icon-password" src="~assets/images/key.png" alt="#">
-                   <img class="form-login__icon-eye" src="~assets/images/eye.png" alt="#">
+                   <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
+                   <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
                    <input class="form-login__password" type="password" placeholder="Подтвердите пароль">
-                   <img class="form-login__icon-password" src="~assets/images/key.png" alt="#">
-                   <img class="form-login__icon-eye" src="~assets/images/eye.png" alt="#">
+                   <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
+                   <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#">
                 </div>
                 <button class="form-login__button">Зарегистрироваться</button>
              </form>
@@ -247,17 +247,25 @@ export default {
   height: 100%;
 }
 
+@media (max-width: 1220px) {
+  .form-login__button, .form-login__wrapper{
+    width: 55%;
+  } 
+}
+
 @media (max-width: 850px) {
   .container-start{
     flex-direction: column-reverse;
+    position: relative;
   }
   .container-picture{
     width: 100%;
     height: 50%;
   }
   .container-main{
+    padding: 30px;
     width: 100%;
-    height: auto;
+    height: 50%;
   }
 
 
@@ -279,17 +287,18 @@ export default {
 
 @media (max-width: 480px) {
     .form-login__wrapper{
-        width: 80%;
+        width: 85%;
     }
   .form-login__name, .form-login__password, .form-login__email, .form-login__surname{
     width: 100%;
   }
   .form-login__button{
-    width: 80%;
+    width: 85%;
   }
   .block-start__text{
     width: 80%;
   }
 }
+
 
 </style>
