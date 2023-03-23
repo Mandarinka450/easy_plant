@@ -1,5 +1,6 @@
 <template>
     <main>
+        <SideMenu/>
         <PlantIn/>
         <Avatar/>
         <Advice/>

@@ -3,5 +3,8 @@
     font-style: normal;
     font-family: 'Montserrat';
     font-weight: 400;
+    overflow: auto;
 }
+
+::-webkit-scrollbar { width: 0;}
 
