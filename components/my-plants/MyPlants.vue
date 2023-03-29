@@ -54,7 +54,8 @@ export default {
 .plant{
   position: relative;
   margin-top: 50px;
-  margin-left: 170px;
+  margin-left: 475px;
+  margin-bottom: 70px;
 }
 .roro{
   font-weight: 600;
@@ -120,5 +121,75 @@ export default {
     line-height: 105%;
     letter-spacing: 0.4px;
     color: #8A8A8E;
+}
+
+@media (max-width: 1160px) {
+  .plant{
+    width: 55%;
+  }
+
+  .container-plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1115px) {
+  .plant{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  .container-plants{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+@media (max-width: 720px) {
+  .container-plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .container-plants{
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container-plants__block{
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media (max-width: 460px) {
+  .container-plants{
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .container-plants__block{
+    width: 300px;
+    height: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container-plants__title{
+    font-size: 18px;
+    z-index: 1;
+  }
+}
+
+
+@media (max-width: 330px) {
+  .container-plants__block{
+    width: 90%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

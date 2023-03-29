@@ -2,6 +2,7 @@
     <main>
       <PlantIn/>
       <Avatar/>
+      <SideMenu/>
       <PlantCard/>
     </main>
 </template>

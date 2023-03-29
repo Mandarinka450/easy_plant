@@ -11,7 +11,10 @@
                 <div class="form-login__wrapper">
                    <input class="form-login__password" type="password" placeholder="Пароль">
                    <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
-                   <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#">
+                   <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="form-login__icon-eye">
+                      <path d="M13.7703 7C13.7703 9.20914 11.9794 11 9.77027 11C7.56114 11 5.77027 9.20914 5.77027 7C5.77027 4.79086 7.56114 3 9.77027 3C11.9794 3 13.7703 4.79086 13.7703 7Z" stroke="currentColor"/>
+                      <path d="M17.9583 5.93429C18.3465 6.40556 18.5405 6.64119 18.5405 7C18.5405 7.35881 18.3465 7.59444 17.9583 8.06571C16.5382 9.78986 13.406 13 9.77027 13C6.13454 13 3.00233 9.78986 1.58224 8.06571C1.19408 7.59444 1 7.35881 1 7C1 6.64119 1.19408 6.40556 1.58224 5.93429C3.00233 4.21014 6.13454 1 9.77027 1C13.406 1 16.5382 4.21014 17.9583 5.93429Z" stroke="currentColor"/>
+                    </svg>
                 </div>
                 <button class="form-login__button">Войти</button>
              </form>
@@ -27,7 +30,15 @@
 
 <script>
 export default {
-  name: 'LoginMain'
+  name: 'LoginMain',
+  head: {
+    script: [
+      {
+        src: "../js/login.js",
+        body: true,
+      },
+    ],
+  }
 }
 </script>
 
@@ -36,6 +47,17 @@ export default {
     position: absolute;
     right: 14px;
     top: 24px;
+    color: #CDCDCD;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.form-login__icon-eye:hover{
+  color: #656262;
+  transition: 0.6s;
+}
+.active{
+  color: #656262;
 }
 .form-login__icon-password{
     position: absolute;
@@ -116,7 +138,7 @@ export default {
     font-family: 'Montserrat';
     line-height: 110%;
     letter-spacing: -1px;
-    color: #CDCDCD;
+    color: #656262;
 }
 .form-login__password{
     width: 100%;
@@ -134,11 +156,12 @@ export default {
     font-family: 'Montserrat';
     line-height: 110%;
     letter-spacing: -1px;
-    color: #CDCDCD;
+    color: #656262;
 }
 
 .form-login__email:focus, .form-login__password:focus{
     outline: 0.4px solid #9D9D9D;
+    
 }
 .container-login{
     display: flex;

@@ -2,6 +2,7 @@
     <main>
         <Exit/>
         <PlantIn/>
+        <SideMenu/>
         <User/>
     </main>
 </template>

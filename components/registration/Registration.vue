@@ -17,14 +17,22 @@
                    <img class="form-login__icon-email" src="~assets/images/icons/mail.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
-                   <input class="form-login__password" type="password" placeholder="Пароль">
+                   <input class="form-login__password" type="password" placeholder="Пароль" id="first-password">
                    <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
-                   <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#">
+                   <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="form-login__icon-eye" data-target="#first-password">
+                      <path d="M13.7703 7C13.7703 9.20914 11.9794 11 9.77027 11C7.56114 11 5.77027 9.20914 5.77027 7C5.77027 4.79086 7.56114 3 9.77027 3C11.9794 3 13.7703 4.79086 13.7703 7Z" stroke="currentColor"/>
+                      <path d="M17.9583 5.93429C18.3465 6.40556 18.5405 6.64119 18.5405 7C18.5405 7.35881 18.3465 7.59444 17.9583 8.06571C16.5382 9.78986 13.406 13 9.77027 13C6.13454 13 3.00233 9.78986 1.58224 8.06571C1.19408 7.59444 1 7.35881 1 7C1 6.64119 1.19408 6.40556 1.58224 5.93429C3.00233 4.21014 6.13454 1 9.77027 1C13.406 1 16.5382 4.21014 17.9583 5.93429Z" stroke="currentColor"/>
+                   </svg>
+                   <!-- <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#"> -->
                 </div>
                 <div class="form-login__wrapper">
-                   <input class="form-login__password" type="password" placeholder="Подтвердите пароль">
+                   <input class="form-login__password" type="password" placeholder="Подтвердите пароль" id="second-password">
                    <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
-                   <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#">
+                   <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="form-login__icon-eye" data-target="#second-password">
+                      <path d="M13.7703 7C13.7703 9.20914 11.9794 11 9.77027 11C7.56114 11 5.77027 9.20914 5.77027 7C5.77027 4.79086 7.56114 3 9.77027 3C11.9794 3 13.7703 4.79086 13.7703 7Z" stroke="currentColor"/>
+                      <path d="M17.9583 5.93429C18.3465 6.40556 18.5405 6.64119 18.5405 7C18.5405 7.35881 18.3465 7.59444 17.9583 8.06571C16.5382 9.78986 13.406 13 9.77027 13C6.13454 13 3.00233 9.78986 1.58224 8.06571C1.19408 7.59444 1 7.35881 1 7C1 6.64119 1.19408 6.40556 1.58224 5.93429C3.00233 4.21014 6.13454 1 9.77027 1C13.406 1 16.5382 4.21014 17.9583 5.93429Z" stroke="currentColor"/>
+                   </svg>
+                   <!-- <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#"> -->
                 </div>
                 <button class="form-login__button">Зарегистрироваться</button>
              </form>
@@ -41,7 +49,15 @@
 
 <script>
 export default {
-  name: 'Registration'
+  name: 'Registration',
+  head: {
+    script: [
+      {
+        src: "../js/registration.js",
+        body: true,
+      },
+    ],
+  }
 }
 </script>
 
@@ -60,6 +76,16 @@ export default {
     position: absolute;
     right: 14px;
     top: 24px;
+    color: #CDCDCD;
+    transition: 0.6s;
+}
+
+.form-login__icon-eye:hover{
+  color: #656262;
+  transition: 0.6s;
+}
+.active{
+  color: #656262;
 }
 .form-login__icon-password{
     position: absolute;
@@ -69,7 +95,7 @@ export default {
 .form-login__icon-user{
     position: absolute;
     left: 14px;
-    top: 11px;
+    top: 17px;
 }
 .form-login__wrapper{
     width: 40%;
@@ -132,7 +158,7 @@ export default {
 }
 
 
-.form-login__email{
+.form-login__email, .form-login__name, .form-login__surname, .form-login__password{
     margin-top: 10px;
     position: relative;
     box-sizing: border-box;
@@ -149,62 +175,7 @@ export default {
     font-family: 'Montserrat';
     line-height: 110%;
     letter-spacing: -1px;
-    color: #CDCDCD;
-}
-.form-login__name{
-    position: relative;
-    box-sizing: border-box;
-    height: 43px;
-    width: 100%;
-    background: white;
-    padding-left: 49px;
-    border: 0.2px solid #9D9D9D;
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
-    border-radius: 15px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    font-family: 'Montserrat';
-    line-height: 110%;
-    letter-spacing: -1px;
-    color: #CDCDCD;
-}
-.form-login__surname{
-    margin-top: 10px;
-    position: relative;
-    box-sizing: border-box;
-    height: 43px;
-    width: 100%;
-    background: white;
-    padding-left: 49px;
-    border: 0.2px solid #9D9D9D;
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
-    border-radius: 15px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    font-family: 'Montserrat';
-    line-height: 110%;
-    letter-spacing: -1px;
-    color: #CDCDCD;
-}
-.form-login__password{
-    width: 100%;
-    margin-top: 10px;
-    box-sizing: border-box;
-    height: 43px;
-    background: #FFFFFF;
-    border: 0.2px solid #9D9D9D;
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
-    border-radius: 15px;
-    font-style: normal;
-    font-weight: 400;
-    padding-left: 49px;
-    font-size: 14px;
-    font-family: 'Montserrat';
-    line-height: 110%;
-    letter-spacing: -1px;
-    color: #CDCDCD;
+    color: #656262;
 }
 
 .form-login__name:focus, .form-login__password:focus, .form-login__surname:focus, .form-login__email:focus{

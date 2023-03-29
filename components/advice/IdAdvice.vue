@@ -2,10 +2,10 @@
     <section>
         <div class="container-advice">
             <div class="catalog__block-link">
-          <img src="~assets/images/icons/strelka.png" alt="">
-          <NuxtLink to="/advice" class="catalog__link">Обратно к советам</NuxtLink>
-        </div>
-        <div class="container-advice__description">
+              <img src="~assets/images/icons/strelka.png" alt="">
+              <NuxtLink to="/advice" class="catalog__link">Обратно к советам</NuxtLink>
+            </div>
+          <div class="container-advice__description">
             <h1 class="container-advice__title">Как поливать цветы, когда уезжаешь в отпуск?</h1>
             <div class="block-author">
                 <p class="block-author__date">19.02.2022</p>
@@ -40,7 +40,7 @@ export default {
     position: relative;
     width: 665px;
     height: auto;
-    margin-left: 170px;
+    margin-left: 475px;
     margin-top: 50px;
     margin-bottom: 70px;
 }
@@ -119,4 +119,29 @@ export default {
     width: 42px;
     border: none;
 }
+@media (max-width: 1172px) {
+    .container-advice{
+        width: 55%;
+    }
+}
+
+@media (max-width: 1115px) {
+    .container-advice{
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+}
+
+@media (max-width: 460px) {
+    .block-author{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-advice__title, .container-advice__text{
+        text-align: center;
+    }
+}
+
 </style>

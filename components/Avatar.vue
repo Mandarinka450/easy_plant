@@ -33,4 +33,10 @@ export default {
     height: 100%;
     border-radius: 10px;
 }
+
+@media (max-width: 1300px) {
+  .container-avatar{
+    top: 20px;
+  }
+}
 </style>

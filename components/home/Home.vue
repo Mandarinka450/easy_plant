@@ -3,8 +3,29 @@
         <div class="container__wrapper">
             <div class="container__main">
                 <p class="container__title">Пора помочь растениям</p>
+                <div class="account__block-plants">
+                   <img src="~assets/images/icons/plants-icon.png" alt="#">
+                   <p class="account__quantity-plants">10 растений</p>
+                </div>
+                <div class="block-advice">
+                    <p class="block-advice__text">Удерживайте температуру и влажность воздуха в разумных пределах, жар от батареи опасен для ваших питомцев.</p>
+                </div>
+                <div class="container-condition">
+                    <div class="block-indicators">
+                        <img src="~assets/images/icons/temperature.png" class="image-indicators" alt="иконка температура комнаты">
+                        <span>25°С</span>
+                    </div>
+                    <div class="block-indicators">
+                        <img src="~assets/images/icons/air.png" class="image-indicators" alt="иконка вложность воздуха в помещении">
+                        <span>30%</span>
+                    </div>
+                    <div class="block-indicators">
+                        <img src="~assets/images/icons/bedroom.png" class="image-indicators" alt="иконка комнаты">
+                        <span>Спальня</span>
+                    </div>
+                </div>
                 <div class="block__pictures">
-                    <p class="block__title-pictures">Новые идеи домашних джунглей</p>
+                    <p class="block__title-pictures">Новые идеи для домашних джунглей</p>
                     <div class="block-grid">
                         <div class="block-grid__first">
                             <img class="block-grid__image" id="image1" src="~assets/images/new_idea/img1.png" alt="первая картинка с растениями">
@@ -54,6 +75,7 @@ export default {
 
 <style scoped>
 
+
 .modal{
     display: none;
     position: fixed;
@@ -102,8 +124,8 @@ export default {
 }
 .container__wrapper{
   z-index: -1;
-  overflow: auto;
   position: absolute;
+  overflow: auto;
   width: 100%;
   height: 100%;
   background-color: #E0F0D5;
@@ -143,31 +165,49 @@ export default {
 .block-grid__first{
     grid-area: A;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
+}
+
+.block-grid__first:hover, .block-grid__second:hover, .block-grid__third:hover, .block-grid__fourth:hover, 
+.block-grid__fiveth:hover, .block-grid__sixth:hover{
+    opacity: 0.6;
+    transition: 0.6s;
 }
 
 .block-grid__second{
     grid-area: B;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
 }
 
 .block-grid__third{
     grid-area: C;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
 }
 
 .block-grid__fourth{
     grid-area: D;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
 }
 
 .block-grid__fiveth{
     grid-area: E;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
 }
 
 .block-grid__sixth{
     grid-area: H;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
 }
 
 .block-grid{
@@ -185,6 +225,95 @@ export default {
                          "D D D H H H H H H";
 }
 
+.account__block-plants{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.account__block-plants img{
+    width: 30px;
+    height: 28px;
+    margin-right: 8px;
+}
 
+.account__quantity-plants{
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #8A8A8E;
+}
+
+.block-advice__text{
+    font-size: 18px;
+    line-height: 105%;
+    color: #4E4E4E;
+}
+
+.container-condition{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.block-indicators{
+    display: flex;
+    margin-right: 20px;
+    align-items: center;
+}
+.image-indicators{
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1115px) {
+    .container__main{
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .modal__image{
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (max-width: 635px) {
+    .container__main{
+        width: 90%;
+    }
+
+    .container__title{
+        width: 90%;
+        font-size: 16vw;
+    }
+
+    .container-condition{
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-condition{
+        width: 100%;
+    }
+
+    .block-grid{
+        width: 100%;
+        height: auto;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 380px);
+        grid-template-areas: "A A A A A A A A A"
+                             "B B B B B B B B B"
+                             "C C C C C C C C C"
+                             "D D D D D D D D D"
+                             "E E E E E E E E E"
+                             "H H H H H H H H H";
+        
+    }
+}
 ::-webkit-scrollbar { width: 0;}
 </style>

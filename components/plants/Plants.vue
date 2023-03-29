@@ -56,7 +56,8 @@ export default {
 .plant{
   position: relative;
   margin-top: 50px;
-  margin-left: 170px;
+  margin-left: 475px;
+  margin-bottom: 70px;
 }
 .roro{
   font-weight: 600;
@@ -113,6 +114,46 @@ export default {
   letter-spacing: 0.4px;
   color: #979CAE;
   margin-top: 50px;
+}
+
+@media (max-width: 1160px) {
+  .plant{
+    width: 55%;
+  }
+
+  .container-plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1115px) {
+  .plant{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .container-plants{
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container-plants__block{
+    width: 100%;
+  }
+  .container-plants__title{
+    font-size: 18px;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .container-plants{
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 </style>

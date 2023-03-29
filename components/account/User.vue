@@ -36,7 +36,9 @@ export default {
     width: 1000px;
     height: auto;
     margin-top: 90px;
-    margin-left: 170px;
+    margin-left: 475px;
+    position: relative;
+    z-index: 1;
 }
 
 .account{
@@ -138,5 +140,53 @@ export default {
     width: 30px;
     height: 28px;
     margin-right: 8px;
+}
+
+@media (max-width: 1433px) {
+    .container__account{
+        width: 65%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .container__account{
+        width: 55%;
+    }
+}
+
+@media (max-width: 1115px) {
+   .container__account{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+   }
+}
+
+@media (max-width: 720px) {
+   .account{
+    flex-direction: column;
+    align-items: center;
+   }
+
+   .account__info-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+   }
+
+   .account__avatar{
+    margin-right: 0;
+   }
+
+   .account__description{
+    text-align: center;
+   }
+}
+
+@media (max-width: 330px) {
+   .account__user-change{
+    width: 100%;
+   }
 }
 </style>

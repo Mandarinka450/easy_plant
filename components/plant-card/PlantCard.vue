@@ -79,7 +79,7 @@ export default {
   width: 720px;
   margin-top: 50px;
   height: auto;
-  margin-left: 170px;
+  margin-left: 475px;
 }
 
 .catalog__link{
@@ -188,5 +188,18 @@ export default {
   font-weight: 600;
 }
 
+@media (max-width: 1230px) {
+  .container__card-plant{
+    width: 55%;
+  }
+}
+
+@media (max-width: 1115px) {
+  .container__card-plant{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+}
 ::-webkit-scrollbar { width: 0;}
 </style>

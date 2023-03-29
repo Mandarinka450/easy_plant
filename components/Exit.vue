@@ -23,4 +23,10 @@ export default {
     letter-spacing: 0.4px;
     color: #4E4E4E;
 }
+
+@media (max-width: 1300px) {
+  .container-exit{
+    top: 20px;
+  }
+}
 </style>

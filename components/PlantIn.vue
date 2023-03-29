@@ -22,4 +22,11 @@ export default {
     width: auto;
     height: 100%;
 }
+
+/* @media (max-width: 1526px) {
+    .container-plant{
+        display: none;
+    }
+} */
+
 </style>

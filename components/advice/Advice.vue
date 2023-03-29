@@ -207,4 +207,18 @@ export default {
         min-height: 40px;
     }
 }
+
+@media (max-width: 1146px) {
+    .container-advice{
+        width: 55%;
+    }
+}
+
+@media (max-width: 1115px) {
+    .container-advice{
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+}
 </style>

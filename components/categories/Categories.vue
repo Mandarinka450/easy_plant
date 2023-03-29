@@ -55,6 +55,11 @@ export default {
 </script>
 
 <style scoped>
+
+.catalog{
+  margin-top: 65px;
+  margin-left: 475px;
+}
 .catalog__title{
   font-weight: 600;
   font-size: 28px;
@@ -62,8 +67,6 @@ export default {
   letter-spacing: 0.4px;
   color: #000000;
   position: relative;
-  margin-top: 65px;
-  margin-left: 170px;
 }
 
 .container-plants{
@@ -74,7 +77,7 @@ export default {
   column-gap: 15px;
   row-gap: 20px;
   margin-top: 95px;
-  margin-left: 170px;
+  
 }
 
 .container-plants__block{
@@ -147,5 +150,60 @@ export default {
   opacity:1;
   transition: 0.7s;
   color: #000000;
+}
+
+@media (max-width: 1160px) {
+  .catalog{
+    width: 55%;
+  }
+
+  .container-plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1115px) {
+  .catalog{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container-plants{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .container-plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .container-plants{
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container-plants__block{
+    width: 100%;
+  }
+
+  .container-plants__title{
+    font-size: 18px;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 390px) {
+  .catalog{
+    margin-top: 95px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container-plants{
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>

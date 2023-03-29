@@ -159,4 +159,10 @@ a:hover svg{
     color: #000000;
     transition: all 0.7s;
 }
+
+@media (max-width: 1115px) {
+    .container-menu{
+        display: none;
+    }
+}
 </style>

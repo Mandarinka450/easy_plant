@@ -38,4 +38,23 @@ export default {
     top: 8px;
     position: absolute;
 }
+
+@media (max-width: 1160px) {
+  .container__form{
+    width: 90%;
+  }
+}
+
+@media (max-width: 1115px) {
+  .container__form{
+    width: 70%;
+  }
+}
+
+@media (max-width: 790px) {
+  .container__form{
+    width: 100%;
+  }
+}
+
 </style>
