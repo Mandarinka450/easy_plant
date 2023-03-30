@@ -140,5 +140,44 @@ export default {
     z-index: -1;
     border-radius: 100%;
 }
+
+@media (max-width: 1115px) {
+    .card-plants{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 660px) {
+    
+    .block-plants{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container__description{
+        margin-top: 60px;
+    }
+
+    .card-plants{
+        width: 100%;
+    }
+}
+
+@media (max-width: 525px) {
+   .container__image{
+    width: 70%;
+   }
+   .container__description{
+    width: 90%;
+   }
+}
+
+@media (max-width: 525px) {
+   .container__image{
+    width: 90%;
+   }
+}
+
 ::-webkit-scrollbar { width: 0;}
 </style>

@@ -198,6 +198,7 @@ export default {
 .container-start{
   display: flex;
   position: fixed;
+  overflow: auto;
   top: 0;
   left: 0;
   width: 100%;
@@ -227,16 +228,16 @@ export default {
 @media (max-width: 850px) {
   .container-start{
     flex-direction: column-reverse;
+    overflow: auto;
     position: relative;
   }
   .container-picture{
     width: 100%;
-    height: 50%;
+    height: 500px;
   }
   .container-main{
     padding: 30px;
     width: 100%;
-    height: 50%;
   }
 
 
@@ -271,5 +272,17 @@ export default {
   }
 }
 
+@media (max-width: 480px) {
+  .form-login__button{
+    font-size: 5vw;
+  }
+  input{
+    font-size: 2vw;
+  }
+
+  .form-login__wrapper{
+    width: 100%;
+  }
+}
 
 </style>
