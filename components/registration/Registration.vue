@@ -5,19 +5,19 @@
              <h1 class="block-start__title">Регистрация</h1>
              <form class="form-login" action="">
                 <div class="form-login__wrapper">
-                   <input class="form-login__name" type="text" placeholder="Имя">
+                   <input class="form-login__name" type="text" placeholder="Имя" v-model="form.name" required>
                    <img class="form-login__icon-user" src="~assets/images/icons/user.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
-                   <input class="form-login__surname" type="text" placeholder="Фамилия">
+                   <input class="form-login__surname" type="text" placeholder="Фамилия" v-model="form.surname" required>
                    <img class="form-login__icon_sur" src="~assets/images/icons/user.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
-                   <input class="form-login__email" type="email" placeholder="E-mail">
+                   <input class="form-login__email" type="email" placeholder="E-mail" v-model="form.email" required>
                    <img class="form-login__icon-email" src="~assets/images/icons/mail.png" alt="#">
                 </div>
                 <div class="form-login__wrapper">
-                   <input class="form-login__password" type="password" placeholder="Пароль" id="first-password">
+                   <input class="form-login__password" type="password" placeholder="Пароль" id="first-password" v-model="form.password" required>
                    <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="form-login__icon-eye" data-target="#first-password">
                       <path d="M13.7703 7C13.7703 9.20914 11.9794 11 9.77027 11C7.56114 11 5.77027 9.20914 5.77027 7C5.77027 4.79086 7.56114 3 9.77027 3C11.9794 3 13.7703 4.79086 13.7703 7Z" stroke="currentColor"/>
@@ -26,7 +26,7 @@
                    <!-- <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#"> -->
                 </div>
                 <div class="form-login__wrapper">
-                   <input class="form-login__password" type="password" placeholder="Подтвердите пароль" id="second-password">
+                   <input class="form-login__password" type="password" placeholder="Подтвердите пароль" id="second-password" v-model="form.password_confirmation" required>
                    <img class="form-login__icon-password" src="~assets/images/icons/key.png" alt="#">
                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="form-login__icon-eye" data-target="#second-password">
                       <path d="M13.7703 7C13.7703 9.20914 11.9794 11 9.77027 11C7.56114 11 5.77027 9.20914 5.77027 7C5.77027 4.79086 7.56114 3 9.77027 3C11.9794 3 13.7703 4.79086 13.7703 7Z" stroke="currentColor"/>
@@ -34,7 +34,7 @@
                    </svg>
                    <!-- <img class="form-login__icon-eye" src="~assets/images/icons/eye.png" alt="#"> -->
                 </div>
-                <button class="form-login__button">Зарегистрироваться</button>
+                <button class="form-login__button" @click="register">Зарегистрироваться</button>
              </form>
              <p class="block-start__text">Продолжая с использованием Email Вы соглашаетесь с Условиями использования и Политикой конфиденциальности.</p>
              <p class="block-start__subtitle">Уже зарегистрированы? <NuxtLink to="/login" style="color: #8FB277;">Войти</NuxtLink></p>
@@ -57,6 +57,32 @@ export default {
         body: true,
       },
     ],
+  },
+  data() {
+    return{
+      form: {
+        name: '',
+        surname: '',
+        email: '',
+        password: '',
+        password_confirmation: ''
+      }
+    }
+  },
+  methods: {
+    register() {
+      this.$store.dispatch('register', {
+        name: this.name,
+        surname: this.surname,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.password_confirmation,
+        image: '',
+        description: 'Всем привет! Я начинающий растениевод, успела посадить уже базилик и мяту! В планах посадить еще много всего.',
+        remember: true
+      })
+      this.$router.push('/home')
+    },
   }
 }
 </script>

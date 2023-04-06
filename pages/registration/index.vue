@@ -3,8 +3,14 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
-  name: 'RegistrationPage'
+  name: 'RegistrationPage',
+  beforeMount(){
+    if(Cookies.get('token')){
+       this.$router.push('/account')
+    }
+  }
 }
 </script>
 
