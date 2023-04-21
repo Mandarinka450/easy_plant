@@ -3,31 +3,31 @@
         <div class="container__card-plant">
           <div class="catalog__block-link">
             <img src="~assets/images/icons/strelka.png" alt="">
-             <NuxtLink to="/catalog" class="catalog__link">Обратно к растениям</NuxtLink>
+             <NuxtLink to="./" class="catalog__link">Обратно к растениям</NuxtLink>
           </div>
           <div class="container__block-info-plant">
             <div class="block__image-plant">
-              <img src="~assets/images/plants/id-plant.png" alt="картинка комнатного растения">
+              <img :src="plant.image" alt="картинка комнатного растения">
             </div>
             <div class="block__description-short">
-              <p class="block__title-rus">Хавортия полосатая</p>
-              <p class="block__title-en">Haworthia fasciata</p>
+              <p class="block__title-rus">{{ plant.name_rus }}</p>
+              <p class="block__title-en">{{ plant.name_eng }}</p>
               <div class="block-notes">
                 <div class="block-notes__image">
                   <img src="~assets/images/icons/temp.png" alt="#">
-                  <p class="block-notes__signature">25-30°С</p>
+                  <p class="block-notes__signature">{{ plant.short_temperature }}°С</p>
                 </div>
                 <div class="block-notes__image">
                   <img src="~assets/images/icons/water.png" alt="#">
-                  <p class="block-notes__signature">Каждые 10 дней</p>
+                  <p class="block-notes__signature">{{ plant.short_watering }}</p>
                 </div>
                 <div class="block-notes__image">
                   <img src="~assets/images/icons/sun.png" alt="#">
-                  <p class="block-notes__signature">Яроке солнце</p>
+                  <p class="block-notes__signature">{{ plant.short_sun }}</p>
                 </div>
                 <div class="block-notes__image">
                   <img src="~assets/images/icons/dangerous.png" alt="#">
-                  <p class="block-notes__signature">Не опасно</p>
+                  <p class="block-notes__signature">{{ plant.dangerous }}</p>
                 </div>
               </div>
               <button class="block__button-add">Добавить к растениям</button>
@@ -42,17 +42,17 @@
               На протяжении периода вегетации поливать надо умеренно, сразу после того как хорошо просохнет верхний слой почвосмеси. Если в зимнее время куст вступил в период покоя, то количество поливов сокращают до 1 раза в 4 недели.
             </p>
             <p class="block__title-water">Полив</p>
-            <p class="block__title-view">Что-то там что-то там что-то там что-то там там там там там там там там там там </p>
+            <p class="block__title-view">{{ plant.watering }}</p>
             <p class="block__title-sun">Освещение</p>
-            <p class="block__title-view">Что-то там что-то там что-то там что-то там там там там там там там там там там </p>
+            <p class="block__title-view">{{ plant.sun }}</p>
             <p class="block__title-temp">Температурный режим</p>
-            <p class="block__title-view">Что-то там что-то там что-то там что-то там там там там там там там там там там </p>
+            <p class="block__title-view">{{ plant.temperature }}</p>
             <p class="block__title-fertilizer">Подкормки</p>
-            <p class="block__title-view">Что-то там что-то там что-то там что-то там там там там там там там там там там </p>
+            <p class="block__title-view">{{ plant.fertilizer }}</p>
             <p class="block__title-transfer">Пересадка</p>
-            <p class="block__title-view">Что-то там что-то там что-то там что-то там там там там там там там там там там </p>
+            <p class="block__title-view">{{ plant.transfer }}</p>
             <p class="block__title-diseases">Заболевания</p>
-            <p class="block__title-view">Что-то там что-то там что-то там что-то там там там там там там там там там там </p>
+            <p class="block__title-view">{{ plant.diseases }}</p>
           </div>
         </div>
     </div>
@@ -60,7 +60,19 @@
 
 <script>
 export default {
-  name: 'PlantCard'
+  name: 'PlantCard',
+  middleware: 'auth',
+  computed: {
+    plant() {
+      return this.$store.getters.PLANT
+    },
+    url(){
+      return this.$router.back()
+    },
+  },
+  created() {
+    this.$store.dispatch('getPlant', this.$route.params.id)
+  },
 }
 </script>
 

@@ -9,16 +9,15 @@
                 </div>
                 <div class="account__info-user">
                     <div class="account__block-user">
-                        <p class="account__name">Yasdary Das</p>
+                        <p class="account__name">{{ user.name }} {{ user.surname }}</p>
                         <img src="~assets/images/icons/change-icon.png" alt="#">
                     </div>
-                    <p class="account__mail">dasefimova@gmail.com</p>
+                    <p class="account__mail">{{ user.email }}</p>
                     <div class="account__block-plants">
                         <img src="~assets/images/icons/plants-icon.png" alt="#">
                         <p class="account__quantity-plants">10 растений</p>
                     </div>
-                    <p class="account__description">Всем привет! Я начинающий растениевод, успела посадить уже базилик и мяту!  
-                        В планах посадить еще много всего.</p>
+                    <p class="account__description">{{ user.description }}</p>
                 </div>
             </div>   
         </div>
@@ -27,7 +26,15 @@
 
 <script>
 export default {
-  name: 'Categories'
+  name: 'Categories',
+  computed: {
+    user() {
+      return this.$store.getters.USER
+    },
+  },
+  created() {
+    this.$store.dispatch('getUser')
+  },
 }
 </script>
 

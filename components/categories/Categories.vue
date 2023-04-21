@@ -1,47 +1,13 @@
 <template>
   <section>
-  <div class="catalog">
+  <div class="catalog" v-if="categories[0]">
     <h1 class="catalog__title">Каталог растений</h1>
     <div class="container-plants">
-        <div class="container-plants__block gray">
-          <p class="container-plants__title">Суккуленты</p>
-          <img class="container-plants__image first" src="~assets/images/type_plants/succulent.png" alt="комнатное растение">
-          <p class="container-plants__description">Растения, имеющие специальные ткани для запаса воды. </p>
-        </div>
-        <div class="container-plants__block purple">
-          <p class="container-plants__title">Декоративно-лиственные</p>
-          <img class="container-plants__image second" src="~assets/images/type_plants/decorat.png" alt="комнатное растение">
-          <p class="container-plants__description">Многообразная группа, насчитывающая больше сотни интересных видов. </p>
-        </div>
-        <div class="container-plants__block dark-purple">
-          <p class="container-plants__title">Насекомоядные</p>
-          <img class="container-plants__image third" src="~assets/images/type_plants/nasekomo.png" alt="комнатное растение">
-          <p class="container-plants__description">Хищное растение, которое питается насекомыми. </p>
-        </div>
-        <div class="container-plants__block blue">
-          <p class="container-plants__title">Кактусы</p>
-          <img class="container-plants__image fourth" src="~assets/images/type_plants/cactus.png" alt="комнатное растение">
-          <p class="container-plants__description">Многолетние травянистые растения, относящиеся к группе стеблевых суккулентов.</p>
-        </div>
-        <div class="container-plants__block purple">
-          <p class="container-plants__title">Орхидеи</p>
-          <img class="container-plants__image fifth" src="~assets/images/type_plants/orhideus.png" alt="комнатное растение">
-          <p class="container-plants__description">Группа растений с красочными и ароматными цветками.</p>
-        </div>
-        <div class="container-plants__block dark-purple">
-          <p class="container-plants__title">Пальмы</p>
-          <img class="container-plants__image sixth" src="~assets/images/type_plants/palma.png" alt="комнатное растение">
-          <p class="container-plants__description">Растение, которое растет исключительно в тропическом и субтропическом климате. </p>
-        </div>
-        <div class="container-plants__block gray">
-          <p class="container-plants__title">Бромелиевые</p>
-          <img class="container-plants__image seventh" src="~assets/images/type_plants/bromelievie.png" alt="комнатное растение">
-          <p class="container-plants__description">Семейство однодольных цветковых растений, входящее в порядок Злакоцветные. </p>
-        </div>
-        <div class="container-plants__block purple">
-          <p class="container-plants__title">Папоротники</p>
-          <img class="container-plants__image eighth" src="~assets/images/type_plants/paporotniki.png" alt="комнатное растение">
-          <p class="container-plants__description">Группа высших споровых растений с хорошо развитыми тканями. </p>
+        <div class="container-plants__block gray" v-for="category in categories" :key="category.id" @click="goToPlants(category)">
+          <p class="container-plants__title">{{ category.title }}</p>
+          <img class="container-plants__image first" :src="category.image" alt="комнатное растение">
+          <p class="container-plants__description">{{ category.description }}</p>
+          <!-- <NuxtLink :to="`/categories/${category.id}`">Перейти</NuxtLink> -->
         </div>
     </div>
   </div>
@@ -50,7 +16,20 @@
 
 <script>
 export default {
-  name: 'Categories'
+  name: 'Categories',
+  created(){
+    this.$store.dispatch('getCategories')
+  },
+  computed:{
+    categories(){
+      return this.$store.getters.CATEGORIES
+    }
+  },
+  methods:{
+    goToPlants(category) {
+      this.$router.push('/categories/' + category.id)
+    }
+  }
 }
 </script>
 
@@ -89,14 +68,33 @@ export default {
   height: 191px;
   overflow: hidden;
 }
-.purple{
+
+.container-plants__block:nth-child(2){
   background: #FAE5CB;
 }
-.dark-purple{
+
+.container-plants__block:nth-child(3){
   background: #F8E3E3;
 }
-.blue{
+
+.container-plants__block:nth-child(4){
   background: #D8F0F8;
+}
+
+.container-plants__block:nth-child(5){
+  background: #FAE5CB;
+}
+
+.container-plants__block:nth-child(6){
+  background: #F8E3E3;
+}
+
+.container-plants__block:nth-child(7){
+  background: #DEF1D0;
+}
+
+.container-plants__block:nth-child(8){
+  background: #FAE5CB;
 }
 
 .container-plants__image{
@@ -107,21 +105,21 @@ export default {
   left: 10px;
 }
 
-.fifth, .seventh, .third{
+.container-plants__block:nth-child(5) img, .container-plants__block:nth-child(7) img, .container-plants__block:nth-child(3) img{
   width: 100%;
   bottom: 0;
   left: 0;
 }
-.second{
+.container-plants__block:nth-child(2) img{
   width: 95%;
   bottom: -25px;
 }
-.sixth{
+.container-plants__block:nth-child(6) img{
   width: 100%;
   left: 0;
   bottom: -10px;
 }
-.eighth{
+.container-plants__block:nth-child(8) img{
   width: 120%;
   left: -20px;
   bottom: -25px;

@@ -1,13 +1,19 @@
 <template>
     <div class="container-exit">
         <img src="~assets/images/icons/exit.png" alt="Выход из профиля">
-        <nuxt-link to="#" class="container-exit__link-exit">Выход</nuxt-link>
+        <span class="container-exit__link-exit" @click="logout">Выход</span>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Exit'
+  name: 'Exit',
+  middleware: 'auth',
+  methods: {
+    logout(){
+       this.$store.dispatch('logout')
+    }
+  },
 }
 </script>
 
@@ -22,6 +28,7 @@ export default {
     line-height: 105%;
     letter-spacing: 0.4px;
     color: #4E4E4E;
+    cursor: pointer;
 }
 
 @media (max-width: 1300px) {

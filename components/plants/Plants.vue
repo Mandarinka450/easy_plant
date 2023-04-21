@@ -7,12 +7,13 @@
         </div>
         <h1 class="catalog__title roro">Найти растение</h1>
         <Search/>
-        <div class="container-plants">
-        <div class="container-plants__block gray">
-          <p class="container-plants__title">Суккуленты</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/succulent.png" alt="комнатное растение">
+        <div class="container-plants" v-if="plants[0]">
+        <div class="container-plants__block gray" v-for="plant in plants" :key="plant.id" @click="goToPlant(plant, url)">
+          <p class="container-plants__title">{{ plant.name_rus }}</p>
+          <img class="container-plants__image" :src="plant.image" alt="комнатное растение">
+          <!-- <NuxtLink :to="`${url}/${plant.id}`">Перейти</NuxtLink> -->
         </div>
-        <div class="container-plants__block purple">
+        <!-- <div class="container-plants__block purple">
           <p class="container-plants__title">Декоративно-лиственные</p>
           <img class="container-plants__image" src="~assets/images/type_plants/decorat.png" alt="комнатное растение">
         </div>
@@ -39,7 +40,7 @@
         <div class="container-plants__block purple">
           <p class="container-plants__title">Папоротники</p>
           <img class="container-plants__image" src="~assets/images/type_plants/paporotniki.png" alt="комнатное растение">
-        </div>
+        </div> -->
     </div>
   </div>
     </section>
@@ -47,7 +48,23 @@
 
 <script>
 export default {
-  name: 'Plants'
+  name: 'Plants',
+  created(){
+    this.$store.dispatch('getPlants', this.$route.params.subcategories)
+  },
+  computed:{
+    plants(){
+      return this.$store.getters.PLANTS
+    },
+    url(){
+      return this.$route.params.subcategories
+    },
+  },
+  methods:{
+    goToPlant(plant, url) {
+      this.$router.push(url+ '/' + plant.id)
+    }
+  }
 }
 </script>
 
