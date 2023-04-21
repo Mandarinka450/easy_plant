@@ -52,7 +52,7 @@
                    </li>
                 </ul>
             </div>
-            <button class="block__button-add">+</button>
+            <button class="block__button-add" @click="goToCatalog()">+</button>
         </div>
     </div>
 </template>
@@ -60,6 +60,11 @@
 <script>
 export default {
   name: 'SideMenu',
+  methods: {
+    goToCatalog() {
+        this.$router.push('/categories')
+    }
+  }
 }
 </script>
 

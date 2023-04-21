@@ -1,13 +1,13 @@
 <template>
     <form action="" class="container__form">
         <img src="~assets/images/icons/search.png" alt="Иконка поиска">
-        <input name="s" placeholder="Поиск" type="search" class="search">
+        <input name="s" placeholder="Поиск" type="search" class="search" @change="findProduct" >
     </form>
 </template>
 
 <script>
 export default {
-  name: 'Search'
+  name: 'Search',
 }
 </script>
 

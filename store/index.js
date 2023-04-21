@@ -13,7 +13,10 @@ export const state = () => ({
     user: {},
     categories:[],
     plants:[],
-    plant: {}
+    room:{},
+    plant: {},
+    rooms:[],
+    count: 0,
 })
 
 export const getters = {
@@ -35,6 +38,15 @@ export const getters = {
     PLANT: (state) => {
       return state.plant
     },
+    ROOM: (state) => {
+      return state.room
+    },
+    ROOMS: (state) => {
+      return state.rooms
+    },
+    COUNT: (state) => {
+      return state.count
+    },
 }
 
 export const mutations = {
@@ -55,6 +67,15 @@ export const mutations = {
     },
     SET_PLANT: (state, payload) => {
       state.plant = payload
+    },
+    SET_ROOM: (state, payload) => {
+      state.room = payload
+    },
+    SET_ROOMS: (state, payload) => {
+      state.rooms = payload
+    },
+    SET_COUNT: (state, payload) => {
+      state.count = payload
     },
 }
 
@@ -90,5 +111,24 @@ export const actions = {
     async getPlant(context, id) {
       const response = await this.$axios.get(`${url_base}plants/${id}`)
       context.commit('SET_PLANT', response.data[0])
+    },
+    async addRoom(context, room) {
+      const response = await this.$axios.$post(`${url_base}add/room`, room, {headers: {Authorization: Cookies.get('token')}} )
+      context.commit('SET_ROOM', response[1])
+      location.reload()
+    },
+    async getRooms(context) {
+      const response = await this.$axios.get(`${url_base}rooms`, {headers: {Authorization: Cookies.get('token')}})
+      context.commit('SET_ROOMS', response.data)
+      console.log(response.data)
+    },
+    async getCount(context) {
+      const response = await this.$axios.get(`${url_base}count`, {headers: {Authorization: Cookies.get('token')}})
+      context.commit('SET_COUNT', response.data)
+      console.log(response.data)
+    },
+    async searchPlant(context, query) {
+      const response = await this.$axios.get(`${url_base}find/${query}`)
+      context.commit('SET_PLANTS', response.data)
     },
 }
