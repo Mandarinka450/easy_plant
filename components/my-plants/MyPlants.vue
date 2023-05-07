@@ -3,15 +3,15 @@
       <div class="catalog plant">
         <div class="account__block-plants">
             <img src="~assets/images/icons/plants-icon.png" alt="#">
-            <p class="account__quantity-plants">10 растений</p>
+            <p class="account__quantity-plants">{{ count }} растений</p>
         </div>
         <h1 class="catalog__title roro">Мои растения</h1>
-        <div class="container-plants">
-        <div class="container-plants__block gray">
-          <p class="container-plants__title">Суккуленты</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/succulent.png" alt="комнатное растение">
+        <div class="container-plants" v-if="myplants[0]">
+        <div class="container-plants__block gray" v-for="myplant in myplants" :key="myplant.id" @click="goToMyplant(myplant)">
+          <p class="container-plants__title">{{ myplant.name }}</p>
+          <img class="container-plants__image" :src="myplant.plants.image" alt="комнатное растение">
         </div>
-        <div class="container-plants__block purple">
+        <!-- <div class="container-plants__block purple">
           <p class="container-plants__title">Декоративно-лиственные</p>
           <img class="container-plants__image" src="~assets/images/type_plants/decorat.png" alt="комнатное растение">
         </div>
@@ -38,7 +38,7 @@
         <div class="container-plants__block purple">
           <p class="container-plants__title">Папоротники</p>
           <img class="container-plants__image" src="~assets/images/type_plants/paporotniki.png" alt="комнатное растение">
-        </div>
+        </div> -->
     </div>
   </div>
     </section>
@@ -46,7 +46,24 @@
 
 <script>
 export default {
-  name: 'MyPlants'
+  name: 'MyPlants',
+  computed: {
+    count() {
+      return this.$store.getters.COUNT
+    },
+    myplants(){
+      return this.$store.getters.MYPLANTS
+    }
+  },
+  created() {
+    this.$store.dispatch('getCount');
+    this.$store.dispatch('getMyplants');
+  },
+  methods: {
+    goToMyplant(myplant) {
+      this.$router.push('/my-plants/' + myplant.id)
+    }
+  }
 }
 </script>
 

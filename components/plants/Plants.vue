@@ -11,36 +11,7 @@
         <div class="container-plants__block gray" v-for="plant in plants" :key="plant.id" @click="goToPlant(plant, url)">
           <p class="container-plants__title">{{ plant.name_rus }}</p>
           <img class="container-plants__image" :src="plant.image" alt="комнатное растение">
-          <!-- <NuxtLink :to="`${url}/${plant.id}`">Перейти</NuxtLink> -->
         </div>
-        <!-- <div class="container-plants__block purple">
-          <p class="container-plants__title">Декоративно-лиственные</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/decorat.png" alt="комнатное растение">
-        </div>
-        <div class="container-plants__block dark-purple">
-          <p class="container-plants__title">Насекомоядные</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/nasekomo.png" alt="комнатное растение">
-        </div>
-        <div class="container-plants__block blue">
-          <p class="container-plants__title">Кактусы</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/cactus.png" alt="комнатное растение">
-        </div>
-        <div class="container-plants__block purple">
-          <p class="container-plants__title">Орхидеи</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/orhideus.png" alt="комнатное растение">
-        </div>
-        <div class="container-plants__block dark-purple">
-          <p class="container-plants__title">Пальмы</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/palma.png" alt="комнатное растение">
-        </div>
-        <div class="container-plants__block gray">
-          <p class="container-plants__title">Бромелиевые</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/bromelievie.png" alt="комнатное растение">
-        </div>
-        <div class="container-plants__block purple">
-          <p class="container-plants__title">Папоротники</p>
-          <img class="container-plants__image" src="~assets/images/type_plants/paporotniki.png" alt="комнатное растение">
-        </div> -->
     </div>
   </div>
     </section>

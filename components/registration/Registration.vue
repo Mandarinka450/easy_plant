@@ -90,12 +90,12 @@ export default {
         surname: '',
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
     }
   },
   methods: {
     sendReg() {
-      this.$store.dispatch('register', {
+        this.$store.dispatch('register', {
         name: this.name,
         surname: this.surname,
         email: this.email,
@@ -105,8 +105,8 @@ export default {
         remember: true
       })
       this.$router.push('/home')
-    },
-  }
+    }
+  },
 }
 </script>
 
@@ -227,20 +227,15 @@ export default {
     color: #656262;
 }
 
-input.error-input{
-  border: 0.2px solid #04f047;
+.error-input{
+  border: 0.2px solid #f00404;
 }
 .error{
-  color: #f00404;
-}
-input.invalid-input{
-  border: 0.2px solid #04f047;
-}
-
-.error-message{
   font-size: 14px;
   color: #f00404;
+  text-align: left;
 }
+
 .form-login__name:focus, .form-login__password:focus, .form-login__surname:focus, .form-login__email:focus{
     outline: 0.4px solid #9D9D9D;
 }

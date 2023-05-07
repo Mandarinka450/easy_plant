@@ -1,13 +1,29 @@
 <template>
     <form action="" class="container__form">
         <img src="~assets/images/icons/search.png" alt="Иконка поиска">
-        <input name="s" placeholder="Поиск" type="search" class="search" @change="findProduct" >
+        <input name="search" placeholder="Поиск" type="text" class="search" v-model="query" >
+        <button type="button" @click="searchPlants()">Найти</button>
     </form>
 </template>
 
 <script>
 export default {
   name: 'Search',
+  data() {
+    return{
+        query: '',
+    }
+  }, 
+  computed: {
+    findplants() {
+      return this.$store.getters.FINDPLANTS
+    },
+  },
+  methods: {
+    async searchPlants() {
+      this.$store.dispatch('searchPlant', this.query)
+    }
+  },
 }
 </script>
 

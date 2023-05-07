@@ -1,7 +1,7 @@
 <template>
     <div class="container-advice">
-        <h1 class="container-advice__title">Советы</h1>
-        <div class="card" @click="goToIdCard()">
+        <h1 class="container-advice__title" v-if="advices[0]">Советы</h1>
+        <div class="card" v-for="advice in advices" :key="advice.id" @click="goToIdCard(advice)">
             <div class="block-hover">
                 <img src="~assets/images/three-plants.png" alt="#">
                 <div class="wave1">
@@ -14,6 +14,27 @@
                           <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                           <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
                           <!-- <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" /> -->
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <p class="card__date-publish">{{ advice.date_publish }}</p>
+            <p class="card__title">{{ advice.title }}</p>
+            <p class="card__description">{{ advice.content }}</p>
+        </div>
+        <!-- <div class="card">
+            <div class="block-hover">
+                <img src="~assets/images/three-plants.png" alt="#">
+                <div class="wave1">
+                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                       <defs>
+                           <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                      </defs>
+                        <g class="parallax">
+                          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,1)" />
+                          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" /> 
                         </g>
                     </svg>
                 </div>
@@ -34,7 +55,7 @@
                           <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,1)" />
                           <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                           <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                          <!-- <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" /> -->
+                          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
                         </g>
                     </svg>
                 </div>
@@ -42,37 +63,24 @@
             <p class="card__date-publish">17.02.2022</p>
             <p class="card__title">Ошибки при уходе за растениями</p>
             <p class="card__description">Недостаток света, отсутствие свежего воздуха, чрезмерная его сухость, сквозняк...</p>
-        </div>
-        <div class="card">
-            <div class="block-hover">
-                <img src="~assets/images/three-plants.png" alt="#">
-                <div class="wave1">
-                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                       <defs>
-                           <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                      </defs>
-                        <g class="parallax">
-                          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,1)" />
-                          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                          <!-- <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" /> -->
-                        </g>
-                    </svg>
-                </div>
-            </div>
-            <p class="card__date-publish">17.02.2022</p>
-            <p class="card__title">Ошибки при уходе за растениями</p>
-            <p class="card__description">Недостаток света, отсутствие свежего воздуха, чрезмерная его сухость, сквозняк...</p>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
 export default {
   name: 'Advice',
+  computed: {
+    advices(){
+      return this.$store.getters.ADVICES
+    }
+  },
+  created() {
+    this.$store.dispatch('getAdvice');
+  },
   methods: {
-  goToIdCard() {
-    this.$router.push('/advice/_id')
+  goToIdCard(advice) {
+    this.$router.push('/advice/' + advice.id)
   },
 }
 }
@@ -134,6 +142,12 @@ export default {
     letter-spacing: -1px;
     color: #A3A3A3;
     margin-left: 20px;
+    margin-right: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .block-hover{
