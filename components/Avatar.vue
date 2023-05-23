@@ -1,5 +1,5 @@
 <template>
-    <div class="container-avatar" @click="goToProfile()">
+    <div id="avatar" class="container-avatar" @click="goToProfile()">
         <button class="container-avatar__icon"></button>
     </div>
 </template>
@@ -23,12 +23,13 @@ export default {
     position: fixed;
     top: 60px;
     right: 30px;
-    z-index: 10;
+    z-index: 100;
 }
 
 .container-avatar__icon{
     border: none;
-    background: gray;
+    background: url("~assets/images/avatar.jpg") no-repeat;
+    background-size: cover;
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -38,5 +39,25 @@ export default {
   .container-avatar{
     top: 20px;
   }
+
 }
+
+@media (max-width: 768px) {
+  .container-avatar{
+    width: 50px;
+    height: 50px;
+    top: 10px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .state-act{
+    display: block;
+  }
+  .state-react{
+    display: none;
+  }
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
     <main>
-        <SideMenu/>
+        <SideAdminMenu/>
         <Queries/>
     </main>
 </template>

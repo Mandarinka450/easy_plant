@@ -1,4 +1,4 @@
-let btnPass = document.querySelectorAll('.form-login__icon-eye');
+var btnPass = document.querySelectorAll('.form-register__icon-eye');
 
 btnPass.forEach( function (btn){
     btn.onclick = function () {

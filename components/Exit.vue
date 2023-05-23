@@ -1,5 +1,5 @@
 <template>
-    <div class="container-exit">
+    <div class="container-exit" id="avatar">
         <img src="~assets/images/icons/exit.png" alt="Выход из профиля">
         <span class="container-exit__link-exit" @click="logout">Выход</span>
     </div>
@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 .container-exit{
+    z-index: 100;
     position: fixed;
     top: 60px;
     right: 30px;

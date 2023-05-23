@@ -11,6 +11,6 @@
 import Advice from '../../components/advice/Advice.vue'
 export default {
   components: { Advice },
-  name: 'AdvicePage'
+  name: 'AdvicePage',
 }
 </script>

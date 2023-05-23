@@ -6,6 +6,20 @@
                   <img src="~assets/images/icons/strelka.png" alt="ссылка обратно к растениям">
                   <NuxtLink to="/my-plants" class="catalog__link">Обратно к растениям</NuxtLink>
                </div>
+               <div class="plant__place" v-if="roomPlant.rooms">
+                  <div class="plant__room-element">
+                    <span class="element__one">{{ roomPlant.rooms.name }}</span>
+                    <p>Местонахождение</p>
+                  </div> 
+                  <div class="plant__room-element">
+                    <span class="element__one">{{ roomPlant.rooms.temperature }}°С</span>
+                    <p>Температура</p>
+                  </div> 
+                  <div class="plant__room-element">
+                    <span class="element__one">{{ roomPlant.rooms.air_humidity }}%</span>
+                    <p>Влажность</p>
+                  </div> 
+               </div>
                <div class="block-plants" v-if="myplant.plants">
                   <div class="container__image">
                     <p class="title-rus">{{ myplant.name }}</p>
@@ -44,7 +58,7 @@
                       <b-button class="block-plants__go" v-b-modal.modal>Переместить</b-button>
                       <b-button class="block-plants__delete" v-b-modal.modal2>Удалить</b-button>
                     </div>
-                    <b-button class="block-plants__add-reminders" v-b-modal.modal2>Добавить напоминание</b-button>
+                    <b-button class="block-plants__add-reminders" v-b-modal.modal3>Добавить напоминание</b-button>
                   </div>
                </div>
             </div>
@@ -64,6 +78,18 @@
               <button class="modal-window__add-room" @click="deleteMyPlant(myplant.id)">Удалить</button>
               </div>
           </b-modal>
+          <b-modal id="modal3" hide-footer content-class="modal-window">
+            <div class="modal-window__body">
+              <p class="my-4 modal-window__title">Добавить напоминание</p>
+              <input type="datetime-local" id="meeting-time"
+               name="meeting-time" value="2023-06-12T19:30"
+               min="2023-05-11T00:00" max="2025-06-14T00:00"
+               v-model="date_remind"
+               class="modal-window__input">
+              <input type="text" placeholder="Необходимо пересадить в другой горшок" class="modal-window__input" v-model="comment">
+              <button class="modal-window__add-room" @click="createRemind()">Добавить</button>
+              </div>
+          </b-modal>
         </div>
     </section>
 </template>
@@ -74,6 +100,9 @@ export default {
   data() {
     return{
         room_id: '',
+        myplant_id: '',
+        date_remind: '',
+        comment: ''
     }
   }, 
   computed: {
@@ -83,10 +112,14 @@ export default {
     rooms() {
       return this.$store.getters.ROOMS
     },
+    roomPlant() {
+      return this.$store.getters.ROOMPLANT
+    },
   },
   created() {
     this.$store.dispatch('getMyPlant', this.$route.params.id);
     this.$store.dispatch('getRooms');
+    this.$store.dispatch('roomByPlant', this.$route.params.id);
   },
   methods: {
     updateMyPlant(myplant) {
@@ -97,233 +130,17 @@ export default {
     deleteMyPlant(id) {
       this.$store.dispatch('deleteMyPlant', id)
     },
+    createRemind() {
+      this.$store.dispatch('createReminders', {
+        myplant_id: this.myplant.id,
+        date_remind: this.date_remind,
+        comment: this.comment,
+      })
+    }
   },
 }
 </script>
 
 <style scoped>
 
-.conditions{
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.block__functions{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  column-gap: 20px;
-}
-
-.block-plants__add-reminders{
-  width: 70% !important;
-  height: 40px !important;
-  background: #D8F0F8 !important;
-  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15) !important;
-  border-radius: 15px !important;
-  border: none !important;
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  line-height: 99.5% !important;
-  color: #5D6062 !important;
-  margin-top: 32px !important;
-  transition: all 0.5s !important;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.block-plants__go, .block-plants__delete{
-  width: 170px !important;
-  height: 40px !important;
-  background: #D8F0F8 !important;
-  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15) !important;
-  border-radius: 15px !important;
-  border: none !important;
-  font-weight: 600 !important;
-  font-size: 16px !important;
-  line-height: 99.5% !important;
-  color: #5D6062 !important;
-  margin-top: 32px !important;
-  transition: all 0.5s !important;
-}
-
-.block-plants__go:hover, .block-plants__delete:hover, .block-plants__add-reminders:hover{
-  background: #FAE5CB !important;
-  transition: all 0.5s !important;
-}
-
-.modal-window__select{
-    border: 1px solid #B6B6B6;
-    border-radius: 10px;
-    height: 50px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 105%;
-    color: #656262;
-    margin-bottom: 26px;
-    padding: 13px 27px;
-    width: 100%;
-}
-
-.modal-window__select:focus{
-    outline: none;
-}
-.container__card{
-  z-index: -1;
-  overflow: auto;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #FFF3D4;
-}
-
-.card-plants{
-    width: 650px;
-    height: auto;
-    position: relative;
-    margin-left: 475px;
-    margin-top: 50px;
-}
-
-.catalog__link{
-  font-size: 18px;
-  line-height: 85.5%;
-  letter-spacing: 0.4px;
-  color: #979CAE;
-  margin-top: 50px;
-}
-
-.block-plants{
-    margin-top: 200px;
-    display: flex;
-    width: 100%;
-    margin-bottom: 100px;
-}
-
-.container__image{
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.container__image img{
-    width: 100%;
-    height: auto;
-}
-.title-rus{
-    font-size: 24px;
-    line-height: 85.5%;
-    color: #000000;
-}
-
-.title-eng{
-    font-size: 18px;
-    line-height: 85.5%;
-    color: #979CAE;
-}
-
-.container__description{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* width: 60%; */
-    height: 250px;
-    /* margin-top: auto;
-    margin-bottom: auto; */
-}
-.block__condition{
-    margin-left: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.signature-condition{
-    text-align: center;
-    line-height: 105%;
-    color: #4E4E4E;
-    margin-top: 10px;
-}
-
-.shadow{
-    position: absolute;
-    width: 100%;
-    height: 55.75px;
-    background: #E6D097;
-    filter: blur(10px);
-    bottom: 0;
-    z-index: -1;
-    border-radius: 100%;
-}
-
-@media (max-width: 1115px) {
-    .card-plants{
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-@media (max-width: 660px) {
-    
-    .block-plants{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .container__description{
-        margin-top: 60px;
-    }
-
-    .card-plants{
-        width: 100%;
-    }
-}
-
-@media (max-width: 560px) {
-  .block-plants__add-reminders{
-    width: 100% !important;
-}
-}
-
-@media (max-width: 525px) {
-   .container__image{
-    width: 70%;
-   }
-   .container__description{
-    width: 100%;
-   }
-   .block__functions{
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-   }
-   .block-plants__go, .block-plants__delete{
-      width: 100% !important;
-      margin-left: auto;
-      margin-right: auto;
-   }
-   .block__condition{
-    margin-left: 0;
-   }
-}
-
-@media (max-width: 425px) {
-   .container__image{
-    width: 90%;
-   }
-   .conditions{
-    align-items: center;
-    width: 90%;
-   }
-   .container__description{
-    grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 60px;
-}
-}
-
-::-webkit-scrollbar { width: 0;}
 </style>

@@ -175,6 +175,13 @@ export default {
   width: 100%;
  }
 }
+
+@media (max-width: 768px) {
+    .container-edit__profile{
+      margin-top: 100px;
+    }
+}
+
 @media (max-width: 430px) {
   .roro{
     text-align: center;

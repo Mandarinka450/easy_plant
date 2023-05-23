@@ -19,12 +19,21 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/fonts/montserrat.css',
-    '~/assets/css/styles.css'
+    '~/assets/css/styles.css',
+    '~/assets/css/login.css',
+    '~/assets/css/registration.css',
+    '~/assets/css/sidemenu.css',
+    '~/assets/css/home.css',
+    '~/assets/css/myplants.css',
+    '~/assets/css/myplant.css',
+    '~/assets/css/plants.css',
+    '~/assets/css/plant.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/bootstrap-vue',
+    
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

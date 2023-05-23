@@ -220,6 +220,9 @@ export default {
         height: 40px;
         min-height: 40px;
     }
+    .container-advice{
+      margin-top: 100px;
+    }
 }
 
 @media (max-width: 1146px) {

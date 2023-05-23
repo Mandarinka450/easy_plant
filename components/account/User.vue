@@ -27,7 +27,7 @@
                 </div>
                 <div class="content" v-if="rooms[0]">
                    <div class="content__body" v-for="room in rooms" :key="room.id">
-                       <div class="content__place">
+                       <div class="content__place name-room">
                            <img src="~assets/images/icons/bedroom.png" alt="" class="room">
                            <span>{{ room.name }}</span>
                         </div>
@@ -64,12 +64,13 @@
                    <p class="header__title">Мои статьи</p>
                    <button class="header__button-add-advice" @click="goToAdd()">+</button>
                 </div>
-                <div class="advice">
+                <div class="advice" v-if="myadvice[0]">
                     <div class="advice__body" v-for="ad in myadvice" :key="ad.id" @click="goToArticle(ad)">
                        <p class="advice__date">{{ ad.date_publish }}</p>
                        <p class="advice__title">{{ ad.title }}</p>
                     </div>
                 </div>
+                <p class="no-room" v-else>Вы можете написать статью и отправить ее нам!</p>
             </div>
             <div class="block-requests" v-if="mylaws[0]">
                 <div class="header">
@@ -334,7 +335,8 @@ export default {
 .account__image{
     width: 266px;
     height: 266px;
-    background-color: gray;
+    background: url("~assets/images/avatar.jpg") no-repeat;
+    background-size: cover;
     border-radius: 100%;
     border: 6px solid #C3E2EC;
     margin-bottom: 40px;
@@ -471,6 +473,7 @@ export default {
     font-weight: 600;
     font-size: 16px;
     transition: 0.5s;
+    color: #4E4E4E;
 }
 
 .modal-window__add-room:hover{
@@ -524,6 +527,10 @@ export default {
     margin-bottom: 35px;
 }
 
+.name-room{
+    width: 150px;
+}
+
 .content > span {
     font-weight: 400;
     font-size: 20px;
@@ -564,10 +571,7 @@ export default {
     .block-rooms, .block-advice, .block-requests, .block-queries{
         width: 100%;
     }
-    .header, .header-advice{
-        flex-direction: column;
-        align-items: center;
-    }
+
     .advice__body, .request__body, .query__body{
         width: 100%;
     }
@@ -607,6 +611,12 @@ export default {
    .account__description{
     text-align: center;
    }
+}
+@media (max-width: 500px) {
+    .header, .header-advice{
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 430px) {

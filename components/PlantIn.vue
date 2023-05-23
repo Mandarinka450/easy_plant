@@ -23,10 +23,10 @@ export default {
     height: 100%;
 }
 
-/* @media (max-width: 1526px) {
+@media (max-width: 1115px) {
     .container-plant{
         display: none;
     }
-} */
+}
 
 </style>

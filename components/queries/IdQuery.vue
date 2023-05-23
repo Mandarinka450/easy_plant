@@ -73,7 +73,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   margin-top: 60px;
 }
 .footer__button-positive{

@@ -1,0 +1,150 @@
+.myplants{
+    position: relative;
+    margin-top: 50px;
+    margin-left: 475px;
+    margin-bottom: 70px;
+}
+
+.title-myplants{
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 85.5%;
+    letter-spacing: 0.4px;
+    color: #000000;
+    position: relative;
+    margin-bottom: 20px;
+}
+  
+.container-myplants{
+    width: 420px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 15px;
+    row-gap: 20px;
+    margin-top: 55px;
+}
+  
+.container-myplants__block{
+    cursor: pointer;
+    position: relative;
+    background-color: #FEF8F7;
+    border-radius: 20px;
+    width: 155px;
+    height: 191px;
+    overflow: hidden;
+}
+  
+.container-myplants__image{
+    width: 80%;
+    height: auto;
+    position: absolute;
+    bottom: -25px;
+    left: 10px;
+}
+  
+.container-myplants__title{
+    position: absolute;
+    left: 8px;
+    top: 14px;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    color: #4E4E4E;
+}
+  
+.account__block-myplants{
+    display: flex;
+}
+
+.account__block-myplants img{
+    width: 30px;
+    height: 28px;
+    margin-right: 8px;
+}
+  
+.account__quantity-myplants{
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #8A8A8E;
+}
+  
+@media (max-width: 1160px) {
+    .myplants{
+      width: 55%;
+    }
+  
+    .container-myplants{
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+  
+@media (max-width: 1115px) {
+    .myplants{
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+    }
+  
+    .container-myplants{
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+}
+  
+  
+@media (max-width: 768px) {
+      .myplants{
+        margin-top: 100px;
+      }
+}
+  
+@media (max-width: 720px) {
+    .container-myplants{
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+  
+@media (max-width: 540px) {
+    .container-myplants{
+      grid-template-columns: repeat(2, 1fr);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .container-myplants__block{
+      width: 100%;
+      height: 250px;
+    }
+}
+  
+@media (max-width: 460px) {
+    .container-myplants{
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .container-myplants__block{
+      width: 300px;
+      height: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .container-myplants__title{
+      font-size: 18px;
+      z-index: 1;
+    }
+}
+  
+  
+@media (max-width: 330px) {
+    .container-myplants__block{
+      width: 90%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}

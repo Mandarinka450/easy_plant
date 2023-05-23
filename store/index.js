@@ -34,7 +34,9 @@ export const state = () => ({
     queriesone: [],
     queriestwo: [],
     queriesthree: [],
-    myadvice:[]
+    myadvice:[],
+    roomPlant: [],
+    reminders:[]
 })
 
 export const getters = {
@@ -118,6 +120,12 @@ export const getters = {
     },
     QUERIESTHREE: (state) => {
       return state.queriesthree
+    },
+    ROOMPLANT: (state) => {
+      return state.roomPlant
+    },
+    REMINDERS: (state) => {
+      return state.reminders
     },
 }
 
@@ -203,12 +211,19 @@ export const mutations = {
     SET_QUERIESTHREE: (state, payload) => {
       state.queriesthree = payload
     },
+    SET_ROOMPLANT: (state, payload) => {
+      state.roomPlant = payload
+    },
+    SET_REMINDERS: (state, payload) => {
+      state.reminders = payload
+    },
 }
 
 export const actions = {
     async register(context, user) {
         const response = await this.$axios.$post(`${url_base}register`, user, requestHeaders)
         context.commit('SET_TOKEN', response[1])
+        this.$router.push('/home')
     },
 
     async login(context, user) {
@@ -255,12 +270,18 @@ export const actions = {
     },
     async searchPlant(context, query) {
       const response = await this.$axios.get(`${url_base}find/${query}`)
-      context.commit('SET_FINDPLANTS', response.data)
+      context.commit('SET_PLANTS', response.data)
+      console.log(response.data)
+    },
+    async searchPlantIsEmpty(context) {
+      const response = await this.$axios.get(`${url_base}find/`)
+      context.commit('SET_PLANTS', response.data)
       console.log(response.data)
     },
     async addPlantUser(context, room) {
       const response = await this.$axios.$post(`${url_base}add/plant`, room, {headers: {Authorization: Cookies.get('token')}} )
       context.commit('SET_MYPLANT', response[1])
+      location.reload()
     },
     async getMyplants(context) {
       const response = await this.$axios.get(`${url_base}myplants`, {headers: {Authorization: Cookies.get('token')}})
@@ -302,6 +323,7 @@ export const actions = {
       const response = await this.$axios.put(`${url_base}room/edit/${id}`, room, {headers: {Authorization: Cookies.get('token')}})
       context.commit('SET_ROOM', response)
       console.log(response)
+      location.reload()
     },
     async getQueries(context) {
       const response = await this.$axios.get(`${url_base}queries`, {headers: {Authorization: Cookies.get('token')}})
@@ -337,6 +359,7 @@ export const actions = {
       const response = await this.$axios.put(`${url_base}plant/edit/${id}`, myplant, {headers: {Authorization: Cookies.get('token')}})
       context.commit('SET_MYPLANT', response)
       console.log(response)
+      location.reload()
     },
     async deleteMyPlant(context, id) {
       const response = await this.$axios.delete(`${url_base}del/plant/${id}`, {headers: {Authorization: Cookies.get('token')}})
@@ -404,6 +427,20 @@ export const actions = {
       const response = await this.$axios.$get(`${url_base}queries/three`, {headers: {Authorization: Cookies.get('token')}} )
       context.commit('SET_QUERIESTHREE', response)
       console.log(response)
+    },
+    async roomByPlant(context, id) {
+      const response = await this.$axios.$get(`${url_base}roomByPlant/${id}`, {headers: {Authorization: Cookies.get('token')}} )
+      context.commit('SET_ROOMPLANT', response[0])
+      console.log(response[0])
+    },
+    async createReminders(context, reminder) {
+      const response = await this.$axios.$post(`${url_base}add/reminder`, reminder, {headers: {Authorization: Cookies.get('token')}} )
+      context.commit('SET_REMINDERS', response.date)
+      location.reload()
+    },
+    async getFindPlants(context, id) {
+      const response = await this.$axios.get(`${url_base}categories/${id}`)
+      context.commit('SET_FINDPLANTS', response.data)
     },
    
 }

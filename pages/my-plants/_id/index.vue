@@ -1,7 +1,7 @@
 <template>
     <main>
         <SideMenu/>
-        <!-- <PlantIn/> -->
+        <PlantIn/>
         <Avatar/>
         <MyPlantsCard/>
     </main>

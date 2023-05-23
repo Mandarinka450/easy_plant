@@ -12,11 +12,11 @@
                 <NuxtLink to="#" class="block-author__name underline" v-if="advice.users">{{ advice.users.name }} {{ advice.users.surname }}</NuxtLink>
             </div>
             <p class="container-advice__text">{{ advice.content }}</p>
-            <div class="block-pagination">
+            <!-- <div class="block-pagination">
                 <p class="block-pagination__signature"> 1 из 2</p>
-                <!-- <img src="~assets/images/icons/arrow-next.png" alt="стрелка вперед"> -->
+                <img src="~assets/images/icons/arrow-next.png" alt="стрелка вперед">
                 <button class="block-pagination__button"></button>
-            </div>
+            </div> -->
         </div>
         </div>
     </section>
@@ -134,6 +134,13 @@ export default {
         width: 90%;
     }
 }
+
+@media (max-width: 768px) {
+    .container-advice{
+      margin-top: 100px;
+    }
+}
+
 
 @media (max-width: 460px) {
     .block-author{

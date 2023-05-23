@@ -1,8 +1,8 @@
 <template>
     <main>
+      <SideMenu/>
       <PlantIn/>
       <Avatar/>
-      <SideMenu/>
       <PlantCard/>
     </main>
 </template>

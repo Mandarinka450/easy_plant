@@ -11,6 +11,6 @@
 import Home from '../../components/home/Home.vue'
 export default {
   components: { Home },
-  name: 'HomePage'
+  name: 'HomePage',
 }
 </script>

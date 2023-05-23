@@ -144,6 +144,14 @@ export default {
   width: 100%;
  }
 }
+
+@media (max-width: 768px) {
+    .container-edit{
+      margin-top: 100px;
+    }
+}
+
+
 @media (max-width: 330px) {
   .roro{
     text-align: center;

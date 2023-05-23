@@ -1,13 +1,12 @@
 <template>
   <section>
-  <div class="catalog" v-if="categories[0]">
+  <div class="catalog">
     <h1 class="catalog__title">Каталог растений</h1>
-    <div class="container-plants">
+    <div class="container-plants" v-if="categories[0]">
         <div class="container-plants__block gray" v-for="category in categories" :key="category.id" @click="goToPlants(category)">
           <p class="container-plants__title">{{ category.title }}</p>
           <img class="container-plants__image first" :src="category.image" alt="комнатное растение">
           <p class="container-plants__description">{{ category.description }}</p>
-          <!-- <NuxtLink :to="`/categories/${category.id}`">Перейти</NuxtLink> -->
         </div>
     </div>
   </div>
@@ -169,6 +168,12 @@ export default {
   .container-plants{
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+@media (max-width: 768px) {
+    .catalog{
+      margin-top: 100px;
+    }
 }
 
 @media (max-width: 720px) {

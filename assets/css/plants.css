@@ -1,0 +1,147 @@
+.container__form{
+    position: relative;
+    width: 680px;
+    height: 43px;
+}
+.search{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 1px solid #B6B6B6;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
+    font-size: 18px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    color: #CDCDCD;
+    padding-left: 50px;
+}
+.search:focus{
+    outline: 0.4px solid #9D9D9D;
+}
+
+.container__form img{
+    left: 15px;
+    top: 8px;
+    position: absolute;
+}
+
+.plant{
+  position: relative;
+  margin-top: 50px;
+  margin-left: 475px;
+  margin-bottom: 70px;
+}
+.search-plant{
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 85.5%;
+  letter-spacing: 0.4px;
+  color: #000000;
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.container-plants{
+  width: 420px;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  row-gap: 20px;
+  margin-top: 30px;
+}
+
+.container-plants__block{
+  cursor: pointer;
+  position: relative;
+  background-color: #FEF8F7;
+  border-radius: 20px;
+  width: 155px;
+  height: 191px;
+  overflow: hidden;
+}
+
+.container-plants__image{
+  width: 80%;
+  height: auto;
+  position: absolute;
+  bottom: -25px;
+  left: 10px;
+}
+
+.container-plants__title{
+  position: absolute;
+  left: 8px;
+  top: 14px;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: -1px;
+  color: #4E4E4E;
+}
+
+.catalog__link{
+  font-size: 18px;
+  line-height: 85.5%;
+  letter-spacing: 0.4px;
+  color: #979CAE;
+  margin-top: 50px;
+}
+
+@media (max-width: 1160px) {
+  .plant{
+    width: 55%;
+  }
+  .container__form{
+    width: 90%;
+  }
+
+  .container-plants{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1115px) {
+  .plant{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container__form{
+    width: 70%;
+  }
+}
+
+@media (max-width: 790px) {
+  .container__form{
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+    .plant{
+      margin-top: 100px;
+    }
+}
+
+@media (max-width: 550px) {
+  .container-plants{
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container-plants__block{
+    width: 100%;
+  }
+  .container-plants__title{
+    font-size: 18px;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .container-plants{
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

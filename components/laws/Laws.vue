@@ -3,10 +3,10 @@
         <div class="container-laws">
             <p class="container-laws__title">Заявки на предоставление прав эксперта</p>
             <div class="block__filters">
-                <div class="all" @click="all()">Все</div>
-                <div class="all" @click="showOne()">На рассмотрении</div>
-                <div class="all" @click="showTwo()">Одобренные</div>
-                <div class="all" @click="showThree()">Отказанные</div>
+                <div class="all" @click="all()" v-bind:class="{ active: isActiveAll }">Все</div>
+                <div class="all" @click="showOne()" v-bind:class="{ active: isActiveOne }">На рассмотрении</div>
+                <div class="all" @click="showTwo()" v-bind:class="{ active: isActiveTwo }">Одобренные</div>
+                <div class="all" @click="showThree()" v-bind:class="{ active: isActiveThree }">Отказанные</div>
             </div>
             <div class="laws" v-if="laws[0]" v-show="showAll">
                 <div class="law-block" v-for="law in laws" :key="law.id">
@@ -70,7 +70,11 @@ export default {
         One: false,
         Two: false,
         Three: false,
-        showAll: true
+        showAll: true,
+        isActiveAll: true,
+        isActiveOne: false,
+        isActiveTwo: false,
+        isActiveThree: false
     }
   }, 
   computed: {
@@ -96,36 +100,61 @@ export default {
   methods: {
     showOne(){
         this.showAll = false,
-        this.One = true
+        this.One = true,
+        this.isActiveOne = true,
+        this.isActiveAll = false,
+        this.isActiveTwo = false,
+        this.isActiveThree = false
     },
     showTwo(){
         this.showAll = false,
         this.One = false,
-        this.Two = true
+        this.Two = true,
+        this.isActiveOne = false,
+        this.isActiveAll = false,
+        this.isActiveTwo = true,
+        this.isActiveThree = false
     },
     showThree(){
         this.showAll = false,
         this.Two = false,
         this.One = false,
-        this.Three = true
+        this.Three = true,
+        this.isActiveOne = false,
+        this.isActiveAll = false,
+        this.isActiveTwo = false,
+        this.isActiveThree = true
     },
     all(){
-        this.showAll = false,
+        this.showAll = true,
         this.Two = false,
         this.One = false,
         this.Three = false,
-        this.showAll = true
+        this.isActiveOne = false,
+        this.isActiveAll = true,
+        this.isActiveTwo = false,
+        this.isActiveThree = false
     },
   },
 }
 </script>
 
 <style scoped>
+.active{
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
 .all{
     color: #B6B6B6;
     font-weight: 700;
     font-size: 20px;
     line-height: 110%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.all:hover{
+    color: #4E4E4E;
+    transition: 0.5s;
 }
 .block__filters{
     height: 40px;
@@ -187,7 +216,7 @@ export default {
     height: auto;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
 }
 
 @media (max-width: 1433px) {

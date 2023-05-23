@@ -1,6 +1,6 @@
 <template>
     <main>
-      <SideMenu/>
+      <SideAdminMenu/>
       <IdLaw/>
     </main>
 </template>

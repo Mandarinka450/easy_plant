@@ -1,4 +1,4 @@
-let btnPass = document.querySelector('.form-login__icon-eye'), 
+var btnPass = document.querySelector('.form-login__icon-eye'), 
     inputPass = document.querySelector('.form-login__password');
 
 btnPass.onclick = function () {
