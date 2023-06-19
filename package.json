@@ -16,9 +16,11 @@
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.25.3",
     "js-cookie": "^3.0.1",
+    "laravel-vue-pagination": "^4.1.0",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "vuelidate": "^0.7.7"
   }
 }

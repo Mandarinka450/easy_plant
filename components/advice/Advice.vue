@@ -1,6 +1,7 @@
 <template>
-    <div class="container-advice">
-        <h1 class="container-advice__title" v-if="advices[0]">Советы</h1>
+    <section>
+    <div class="container-advice" v-if="advices[0]">
+        <h1 class="container-advice__title">Советы</h1>
         <div class="card" v-for="advice in advices" :key="advice.id" @click="goToIdCard(advice)">
             <div class="block-hover">
                 <img src="~assets/images/three-plants.png" alt="#">
@@ -13,7 +14,6 @@
                           <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,1)" />
                           <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                           <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                          <!-- <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" /> -->
                         </g>
                     </svg>
                 </div>
@@ -22,71 +22,109 @@
             <p class="card__title">{{ advice.title }}</p>
             <p class="card__description">{{ advice.content }}</p>
         </div>
-        <!-- <div class="card">
-            <div class="block-hover">
-                <img src="~assets/images/three-plants.png" alt="#">
-                <div class="wave1">
-                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                       <defs>
-                           <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                      </defs>
-                        <g class="parallax">
-                          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,1)" />
-                          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" /> 
-                        </g>
-                    </svg>
-                </div>
+        <div class="container__pagination">
+            <div>
+                <img src="~assets/images/icons/list.png" alt="#" v-show="isActive1">
+                <p :class="{'p1': isActive1}" @click="nextUrl1()">{{ p1 }}</p>
             </div>
-            <p class="card__date-publish">17.02.2022</p>
-            <p class="card__title">Ошибки при уходе за растениями</p>
-            <p class="card__description">Недостаток света, отсутствие свежего воздуха, чрезмерная его сухость, сквозняк...</p>
+            <div>
+                <img src="~assets/images/icons/list.png" alt="#" v-show="isActive2">
+                <p @click="nextUrl2()" :class="{'p1': isActive2}">{{ p2 }}</p>
+            </div>
+            <div>
+                <img src="~assets/images/icons/list.png" alt="#" v-show="isActive3">
+                <p @click="nextUrl3()" :class="{'p1': isActive3}">{{ p3 }}</p>
+            </div>
+            
         </div>
-        <div class="card">
-            <div class="block-hover">
-                <img src="~assets/images/three-plants.png" alt="#">
-                <div class="wave1">
-                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                       <defs>
-                           <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                      </defs>
-                        <g class="parallax">
-                          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,1)" />
-                          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-                        </g>
-                    </svg>
-                </div>
-            </div>
-            <p class="card__date-publish">17.02.2022</p>
-            <p class="card__title">Ошибки при уходе за растениями</p>
-            <p class="card__description">Недостаток света, отсутствие свежего воздуха, чрезмерная его сухость, сквозняк...</p>
-        </div> -->
     </div>
+    <Loader v-else></Loader>
+   </section>
 </template>
 
 <script>
 export default {
-  name: 'Advice',
-  computed: {
-    advices(){
-      return this.$store.getters.ADVICES
+    name: "Advice",
+    data() {
+    return{
+        p1: 1,
+        p2: 2,
+        p3: 3,
+        isActive1: true,
+        isActive2: false,
+        isActive3: false,
     }
-  },
-  created() {
-    this.$store.dispatch('getAdvice');
-  },
-  methods: {
-  goToIdCard(advice) {
-    this.$router.push('/advice/' + advice.id)
-  },
-}
+  }, 
+    computed: {
+        advices() {
+            return this.$store.getters.ADVICES;
+        }
+    },
+    created() {
+        this.$store.dispatch('getAdvice', 1);
+    },
+    methods: {
+        goToIdCard(advice) {
+            this.$router.push("/advice/" + advice.id);
+        },
+        nextUrl1(){
+            this.$store.dispatch('getAdvice', 1);
+            this.isActive1 = true;
+            this.isActive2 = false;
+            this.isActive3 = false;
+        },
+        nextUrl2(){
+            this.$store.dispatch('getAdvice', 2);
+            this.isActive1 = false;
+            this.isActive2 = true;
+            this.isActive3 = false;
+        },
+        nextUrl3(){
+            this.$store.dispatch('getAdvice', 3);
+            this.isActive1 = false;
+            this.isActive2 = false;
+            this.isActive3 = true;
+        }
+    },
 }
 </script>
 
 <style scoped>
+
+.container__pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 60px;
+    height: 60px;
+    margin-top: 80px;
+}
+
+.container__pagination > div > p{
+    font-size: 20px;
+    color: #768A68;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+.container__pagination > div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.container__pagination > div > img {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    top: -10px;
+}
+
+.p1{
+    font-weight: 600;
+}
 .container-advice{
     width: 650px;
     height: auto;

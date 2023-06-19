@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="container-advice">
+        <div class="container-advice" v-if="advice.title">
             <div class="catalog__block-link">
               <img src="~assets/images/icons/strelka.png" alt="">
               <NuxtLink to="/advice" class="catalog__link">Обратно к советам</NuxtLink>
@@ -11,14 +11,10 @@
                 <p class="block-author__date">{{ advice.date_publish }}</p>
                 <NuxtLink to="#" class="block-author__name underline" v-if="advice.users">{{ advice.users.name }} {{ advice.users.surname }}</NuxtLink>
             </div>
-            <p class="container-advice__text">{{ advice.content }}</p>
-            <!-- <div class="block-pagination">
-                <p class="block-pagination__signature"> 1 из 2</p>
-                <img src="~assets/images/icons/arrow-next.png" alt="стрелка вперед">
-                <button class="block-pagination__button"></button>
-            </div> -->
+            <span>{{ advice.content }}</span>
         </div>
         </div>
+        <Loader v-else></Loader>
     </section>
 </template>
 

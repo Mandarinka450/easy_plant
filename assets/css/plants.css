@@ -25,7 +25,7 @@
     position: absolute;
 }
 
-.plant{
+.plants-by-id{
   position: relative;
   margin-top: 50px;
   margin-left: 475px;
@@ -42,7 +42,7 @@
   margin-bottom: 20px;
 }
 
-.container-plants{
+.container-plants-by-id{
   width: 420px;
   height: auto;
   display: grid;
@@ -52,7 +52,7 @@
   margin-top: 30px;
 }
 
-.container-plants__block{
+.container-plants-by-id__block{
   cursor: pointer;
   position: relative;
   background-color: #FEF8F7;
@@ -62,7 +62,7 @@
   overflow: hidden;
 }
 
-.container-plants__image{
+.container-plants-by-id__image{
   width: 80%;
   height: auto;
   position: absolute;
@@ -70,7 +70,7 @@
   left: 10px;
 }
 
-.container-plants__title{
+.container-plants-by-id__title{
   position: absolute;
   left: 8px;
   top: 14px;
@@ -89,20 +89,20 @@
 }
 
 @media (max-width: 1160px) {
-  .plant{
+  .plants-by-id{
     width: 55%;
   }
   .container__form{
     width: 90%;
   }
 
-  .container-plants{
+  .container-plants-by-id{
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 1115px) {
-  .plant{
+  .plants-by-id{
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -119,28 +119,28 @@
 }
 
 @media (max-width: 768px) {
-    .plant{
+    .plants-by-id{
       margin-top: 100px;
     }
 }
 
 @media (max-width: 550px) {
-  .container-plants{
+  .container-plants-by-id{
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .container-plants__block{
+  .container-plants-by-id__block{
     width: 100%;
   }
-  .container-plants__title{
+  .container-plants-by-id__title{
     font-size: 18px;
     z-index: 1;
   }
 }
 
 @media (max-width: 320px) {
-  .container-plants{
+  .container-plants-by-id{
     width: 100%;
     grid-template-columns: repeat(1, 1fr);
   }

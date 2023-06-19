@@ -1,6 +1,6 @@
 <template>
     <div class="container__wrapper">
-        <div class="container__card-plant">
+        <div class="container__card-plant" v-if="plant.name_rus">
           <div class="catalog__block-link">
             <img src="~assets/images/icons/strelka.png" alt="">
              <NuxtLink to="." class="catalog__link">Обратно к растениям</NuxtLink>
@@ -61,6 +61,7 @@
               <p v-else>Чтобы добавить растение, выберите комнату. Если комнаты нет, создайте в своем <NuxtLink to="/account">личном кабинете</NuxtLink>.</p>
           </b-modal>
         </div>
+        <Loader v-else></Loader>
     </div>
 </template>
 

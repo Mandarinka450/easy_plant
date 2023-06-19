@@ -11,8 +11,9 @@
             <div class="laws" v-if="laws[0]" v-show="showAll">
                 <div class="law-block" v-for="law in laws" :key="law.id">
                     <div class="law-block__info">
-                        <p class="law-block__date">{{ law.date_create }}</p>
-                        <p class="law-block__user" v-if="law.users">{{ law.users.name }} {{ law.users.surname }}</p>
+                        <p class="law-block__date"><b>Дата подачи:</b> {{ law.date_create }}</p>
+                        <p class="law-block__date"><b>ID:</b> {{ law.users.id }}</p>
+                        <p class="law-block__user" v-if="law.users"><b>ФИО:</b> {{ law.users.name }} {{ law.users.surname }}</p>
                     </div>
                     <div class="law-block__about">
                         <NuxtLink :to="`/laws/${law.id}`">Подробнее</NuxtLink>
@@ -25,8 +26,9 @@
             <div class="laws" v-if="lawsone[0]" v-show="One">
                 <div class="law-block" v-for="lawone in lawsone" :key="lawone.id" >
                     <div class="law-block__info">
-                        <p class="law-block__date">{{ lawone.date_create }}</p>
-                        <p class="law-block__user" v-if="lawone.users">{{ lawone.users.name }} {{ lawone.users.surname }}</p>
+                        <p class="law-block__date"><b>Дата подачи:</b> {{ lawone.date_create }}</p>
+                        <p class="law-block__date"><b>ID:</b> {{ lawone.users.id }}</p>
+                        <p class="law-block__user" v-if="lawone.users"><b>ФИО:</b> {{ lawone.users.name }} {{ lawone.users.surname }}</p>
                     </div>
                     <div class="law-block__about">
                         <NuxtLink :to="`/laws/${lawone.id}`">Подробнее</NuxtLink>
@@ -37,8 +39,9 @@
             <div class="laws" v-if="lawstwo[0]" v-show="Two">
                 <div class="law-block" v-for="lawtwo in lawstwo" :key="lawtwo.id" >
                     <div class="law-block__info">
-                        <p class="law-block__date">{{ lawtwo.date_create }}</p>
-                        <p class="law-block__user" v-if="lawtwo.users">{{ lawtwo.users.name }} {{ lawtwo.users.surname }}</p>
+                        <p class="law-block__date"><b>Дата подачи:</b> {{ lawtwo.date_create }}</p>
+                        <p class="law-block__date"><b>ID:</b> {{ lawtwo.users.id }}</p>
+                        <p class="law-block__user" v-if="lawtwo.users"><b>ФИО:</b> {{ lawtwo.users.name }} {{ lawtwo.users.surname }}</p>
                     </div>
                     <div class="law-block__about">
                         <NuxtLink :to="`/laws/${lawtwo.id}`">Подробнее</NuxtLink>
@@ -49,8 +52,9 @@
             <div class="laws" v-if="lawsthree[0]" v-show="Three">
                 <div class="law-block" v-for="lawthree in lawsthree" :key="lawthree.id" >
                     <div class="law-block__info">
-                        <p class="law-block__date">{{ lawthree.date_create }}</p>
-                        <p class="law-block__user" v-if="lawthree.users">{{ lawthree.users.name }} {{ lawthree.users.surname }}</p>
+                        <p class="law-block__date"><b>Дата подачи:</b> {{ lawthree.date_create }}</p>
+                        <p class="law-block__date"><b>ID:</b> {{ lawthree.users.id }}</p>
+                        <p class="law-block__user" v-if="lawthree.users"><b>ФИО:</b> {{ lawthree.users.name }} {{ lawthree.users.surname }}</p>
                     </div>
                     <div class="law-block__about">
                         <NuxtLink :to="`/laws/${lawthree.id}`">Подробнее</NuxtLink>
@@ -80,6 +84,9 @@ export default {
   computed: {
     laws() {
       return this.$store.getters.LAWS
+    },
+    admin() {
+      return this.$store.getters.ADMIN
     },
     lawsone() {
       return this.$store.getters.LAWSONE
@@ -140,120 +147,5 @@ export default {
 </script>
 
 <style scoped>
-.active{
-    color: #000000 !important;
-    font-weight: 600 !important;
-}
-.all{
-    color: #B6B6B6;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 110%;
-    cursor: pointer;
-    transition: 0.5s;
-}
-.all:hover{
-    color: #4E4E4E;
-    transition: 0.5s;
-}
-.block__filters{
-    height: 40px;
-    width: 90%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px;
-}
-.blue{
-    font-weight: 500;
-    color: blue;
-}
-.green{
-    font-weight: 500;
-    color: green;
-}
-.red{
-    font-weight: 500;
-    color: red;
-}
-.container-laws{
-  margin-top: 100px;
-  margin-left: 475px;
-}
 
-.container-laws__title{
-    font-weight: 600;
-    font-size: 26px;
-    line-height: 105%;
-}
-
-.laws{
-    display: flex;
-    flex-direction: column;
-    row-gap: 40px;
-    margin-bottom: 30px;
-}
-.law-block{
-    width: 90%;
-    height: auto;
-    border: 1px solid #CDCDCD;
-    filter: drop-shadow(0.5px 0.5px 5px rgba(0, 0, 0, 0.25));
-    border-radius: 10px;
-    padding:20px 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.law-block__info{
-    display: flex;
-    flex-direction: column;
-}
-.law-block__about{
-    width: 150px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-@media (max-width: 1433px) {
-  .container-laws{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
- 
-}
-
-@media (max-width: 685px) {
-  .all{
-    padding: 15px 0px;
-
-    }
-  .law-block{
-    width: 100%;
-  }
-  .block__filters{
-    flex-direction: column;
-    position: relative;
-    height: auto;
-    width: 100%;
-  }
-  .container-laws__title{
-    text-align: center;
-  }
- 
-}
-
-@media (max-width: 330px) {
-    .law-block{
-        flex-direction: column;
-    }
-    .law-block__info, .law-block__about{
-        align-items: center;
-    }
-}
 </style>

@@ -1,6 +1,7 @@
 <template>
     <main>
         <SideAdminMenu/>
+        <Exit/>
         <Queries/>
     </main>
 </template>
@@ -9,6 +10,7 @@
 import Queries from '../../components/queries/Queries.vue'
 export default {
   components: { Queries },
-  name: 'QueriesPage'
+  name: 'QueriesPage',
+  middleware: 'admin',
 }
 </script>

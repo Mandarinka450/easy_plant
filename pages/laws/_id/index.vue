@@ -9,6 +9,7 @@
 import IdLaw from '../../../components/laws/IdLaw.vue'
 export default {
   components: { IdLaw },
-  name: 'LawIdPage'
+  name: 'LawIdPage',
+  middleware: 'admin',
 }
 </script>

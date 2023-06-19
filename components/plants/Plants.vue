@@ -1,6 +1,6 @@
 <template>
     <section>
-      <div class="plant">
+      <div class="plants-by-id" v-if="plants[0]">
         <div class="catalog__block-link">
           <img src="~assets/images/icons/strelka.png" alt="">
           <NuxtLink to="/categories" class="catalog__link">Обратно к каталогу</NuxtLink>
@@ -10,13 +10,14 @@
             <img src="~assets/images/icons/search.png" alt="Иконка поиска">
             <input name="search" placeholder="Поиск" type="text" class="search" v-model="query" @input="searchPlants()">
         </form>
-        <div class="container-plants" v-if="plants[0]">
-        <div class="container-plants__block gray" v-for="plant in plants" :key="plant.id" @click="goToPlant(plant, url)">
-          <p class="container-plants__title">{{ plant.name_rus }}</p>
-          <img class="container-plants__image" :src="plant.image" alt="комнатное растение">
+        <div class="container-plants-by-id">
+        <div class="container-plants-by-id__block gray" v-for="plant in plants" :key="plant.id" @click="goToPlant(plant, url)">
+          <p class="container-plants-by-id__title">{{ plant.name_rus }}</p>
+          <img class="container-plants-by-id__image" :src="plant.image" alt="комнатное растение">
         </div>
     </div>
-  </div>
+   </div>
+    <Loader v-else></Loader>
     </section>
 </template>
 
@@ -25,12 +26,12 @@ export default {
   name: 'Plants',
   data() {
     return{
-        query: '',
+      query: '',
     }
   }, 
   created(){
     this.$store.dispatch('getPlants', this.$route.params.subcategories);
-    this.$store.dispatch('searchPlantIsEmpty')
+    this.$store.dispatch('searchPlantIsEmpty', this.$route.params.subcategories)
   },
   computed:{
     plants(){
@@ -45,7 +46,7 @@ export default {
       this.$router.push(url + '/' + plant.id)
     },
     async searchPlants() {
-      this.$store.dispatch('searchPlant', this.query)
+      this.$store.dispatch('searchPlant', {id:this.$route.params.subcategories, query: this.query})
     },
   }
 }

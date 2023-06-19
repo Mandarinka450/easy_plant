@@ -115,12 +115,12 @@
 }
 
 .error-input{
-  border: 0.2px solid #f00404;
+  border: 0.2px solid #e65353 !important;
 }
 .error{
   font-size: 14px;
-  color: #f00404;
-  text-align: left;
+  color: #e65353;
+  text-align: center;
 }
 
 .form-register__name:focus, .form-register__password:focus, .form-register__surname:focus, .form-register__email:focus{

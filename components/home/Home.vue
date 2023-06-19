@@ -3,12 +3,26 @@
         <div class="container__wrapper">
             <div class="container__main">
                 <p class="container__title">Пора помочь растениям</p>
+                <div v-if="count[0]" class="bb">
                 <div class="account__block-plants">
                    <img src="~assets/images/icons/plants-icon.png" alt="#">
-                   <p class="account__quantity-plants">{{ count }} растений</p>
+                   <p class="account__quantity-plants">{{ count }}</p>
+                </div>
+                <div class="block-cards-remind" v-if="reminders[0]">
+                  <div class="block-cards-remind__element" v-for="remind in reminders" :key="remind.id" @click="goToIdCard(remind)">
+                    <div class="block-cards-remind__image">
+                      <img :src="remind.plant.image" alt="Картинка растения">
+                    </div>
+                    <div class="block-cards-remind__info">
+                      <p class="block-cards-remind__text">{{ remind.comment }}</p>
+                      <p class="block-cards-remind__name">{{ remind.plant.name_rus }} • {{ remind.myplants.name }}</p>
+                    </div>
+                  </div>
                 </div>
                 <div class="block-short-advice">
-                    <p class="block-advice__text">Удерживайте температуру и влажность воздуха в разумных пределах, жар от батареи опасен для ваших питомцев.</p>
+                    <p class="block-advice__text one-advice">Удерживайте температуру и влажность воздуха в разумных пределах, жар от батареи опасен для ваших питомцев.</p>
+                    <p class="block-advice__text two-advice">Гигиена комнатного растения – это прежде всего удаление высохших и омертвевших веточек или листочков, именно на этих частях, как правило, и развиваются болезни и вредители.</p>
+                    <p class="block-advice__text three-advice">Пересадку производите только тогда, когда это необходимо, а именно – когда корни полностью пронизают всю почву.</p>
                 </div>
                 <div class="container-condition" v-for="room in rooms" :key="room.id"> 
                     <div class="block-indicators">
@@ -24,6 +38,10 @@
                         <span>{{ room.name }}</span>
                 </div>
                 </div>
+              </div>
+              <div v-else class="block__loader">
+                <Loader></Loader>
+              </div>
                 <div class="block__pictures">
                     <p class="block__title-pictures">Новые идеи для домашних джунглей</p>
                     <div class="block-grid">
@@ -73,6 +91,9 @@ export default {
     rooms() {
       return this.$store.getters.ROOMS
     },
+    reminders() {
+      return this.$store.getters.REMINDERS
+    },
     count() {
       return this.$store.getters.COUNT
     },
@@ -80,6 +101,12 @@ export default {
   created() {
     this.$store.dispatch('getRooms');
     this.$store.dispatch('getCount');
+    this.$store.dispatch('getReminders');
+  },
+  methods: {
+    goToIdCard(remind) {
+      this.$router.push("/my-plants/" + remind.myplant_id);
+    },
   },
 }
 

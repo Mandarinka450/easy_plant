@@ -1,6 +1,7 @@
 <template>
     <main>
         <SideAdminMenu/>
+        <Exit/>
         <Laws/>
     </main>
 </template>
@@ -9,6 +10,7 @@
 import Laws from '../../components/laws/Laws.vue'
 export default {
   components: { Laws },
-  name: 'LawsPage'
+  name: 'LawsPage',
+  middleware: 'admin',
 }
 </script>

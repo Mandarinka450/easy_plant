@@ -1,0 +1,472 @@
+.advice__content, .query__content{
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    color: #A3A3A3;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.account__check-expert{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.account__check-expert > img{
+    width: 19px;
+    height: 17px;
+    margin-right: 10px;
+}
+
+.check{
+    margin-bottom: 0;
+    color: #8EB274;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 99.5%;
+}
+.content__button-change{
+    cursor: pointer;
+}
+
+.blue{
+    font-weight: 600;
+    color: #86B2C0;
+}
+.green{
+    font-weight: 600;
+    color: #8FB377;
+}
+.red{
+    font-weight: 600;
+    color: #ed6363;
+}
+
+.advice{
+    cursor: pointer;
+}
+
+.form-room-edit__name, .form-room-edit__temperature, .form-room-edit__air{
+    position: relative;
+    box-sizing: border-box;
+    height: 43px;
+    width: 100%;
+    background: transparent;
+    padding-left: 19px;
+    border: none;
+    border-bottom: 0.5px solid #8FB377;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: -1px;
+    color: #656262;
+}
+
+.form-room-edit__button{
+    width: 170px;
+    height: 40px;
+    transition: all 0.5s;
+    background: #8FB377;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 99.5%;
+    letter-spacing: 0.4px;
+    border: none;
+    margin-top: 45px;
+    color: #FFFFFF;
+}
+
+.form-room-edit__button:hover{
+    background: #768A68;
+    transition: all 0.5s;
+}
+
+.modal-window__text{
+    text-align: center;
+}
+
+.requests, .queries, .advice{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+    margin-top: 35px;
+
+}
+
+.request__body, .query__body, .advice__body{
+    background: #FFFFFF;
+    box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 650px;
+    min-height: 117px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.request__date, .request__description, .query__date, .advice__date {
+    color: #8F8F8F;
+}
+
+.advice__title, .query__title{
+    color: #4E4E4E;
+}
+
+.advice__content, .query__content{
+    color: #A3A3A3;
+}
+
+.query__comment{
+    color: #4E4E4E;
+}
+
+
+.container__account{
+    width: 1000px;
+    height: auto;
+    margin-top: 90px;
+    margin-left: 475px;
+    position: relative;
+    z-index: 1;
+}
+
+.account{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.account__avatar{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 70px;
+}
+
+.account__info-user{
+    width: 630px;
+    margin-top: 20px;
+}
+
+.account__image{
+    width: 266px;
+    height: 266px;
+    background: url("~assets/images/avatar.jpg") no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+    border: 6px solid #C3E2EC;
+    margin-bottom: 40px;
+}
+
+.account__user-change{
+    background: #D8F0F8 !important;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 15px !important;
+    width: 308px !important;
+    height: 40px !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    line-height: 99.5% !important;
+    letter-spacing: 0.4px !important;
+    color: #5D6062 !important;
+    transition: all 0.5s !important;
+}
+
+.account__user-change:hover{
+    background: #BFE7F5 !important;
+    transition: all 0.5s !important;
+}
+
+.account__name{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #4E4E4E;
+    text-transform: uppercase;
+}
+
+.account__mail{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    text-decoration-line: underline;
+    color: #4E4E4E;
+}
+
+.account__quantity-plants{
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #8A8A8E;
+}
+
+.account__description{
+    width: 90%;
+    font-size: 20px;
+    line-height: 105%;
+    letter-spacing: 0.4px;
+    color: #000000;
+    text-align: justify;
+}
+
+.account__block-user, .account__block-plants{
+    display: flex;
+}
+.account__block-user img{
+    margin-top: 7px;
+    margin-left: 15px;
+    width: 20px;
+    height: 22px;
+}
+.account__block-plants img{
+    width: 30px;
+    height: 28px;
+    margin-right: 8px;
+}
+
+.block-rooms, .block-advice, .block-requests{
+    margin-bottom: 80px;
+    width: 70%;
+    height: auto;
+}
+
+.block-rooms{
+    margin-top: 40px;
+}
+
+
+.header__title{
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 105%;
+    color: #4E4E4E;
+}
+
+.header__button-add-room, .header__button-add-advice{
+    background: #E7D39B !important;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 15px !important;
+    border: none !important;
+    width: 215px !important;
+    font-weight: 800 !important;
+    font-size: 24px !important;
+    line-height: 99.5% !important;
+    height: 44px !important;
+    transition: 0.5s !important;
+    color: white;
+}
+
+.header__button-add-room:hover, .header__button-add-advice:hover {
+    background: #f1ec5a !important;
+    transition: 0.5s !important;
+}
+
+.header, .header-advice{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-window {
+    border-radius: 10px;
+}
+
+.modal-window__body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-window__add-room{
+    background: #C3E2EC;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    height: 40px;
+    width: 50%;
+    border: none;
+    margin-bottom: 35px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.5s;
+    color: #4E4E4E;
+}
+
+.modal-window__add-room:hover{
+    background: #77b1c5;
+    transition: 0.5s;
+}
+
+.modal-window__input{
+    border: 1px solid #B6B6B6;
+    border-radius: 10px;
+    height: 43px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 105%;
+    color: #B6B6B6;
+    margin-bottom: 26px;
+    padding: 13px 27px;
+    width: 100%;
+}
+
+.modal-window__textarea{
+    border: 1px solid #B6B6B6;
+    border-radius: 10px;
+    height: 150px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 105%;
+    color: #B6B6B6;
+    margin-bottom: 26px;
+    padding: 13px 27px;
+    width: 100%;
+    resize: none;
+}
+
+.modal-window__title{
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 85.5%;
+}
+
+.content{
+    margin-top: 35px;
+}
+
+.content__body{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.name-room{
+    width: 150px;
+}
+
+.content > span {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 105%;
+}
+
+.room{
+    width: 47px;
+    height: 47px;
+}
+
+.content__delete{
+    width: 27px;
+    height: 27px;
+}
+
+.no-room{
+    font-size: 20px;
+    color: #959393;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.content__button-change{
+    width: 20px;
+    height: 24px;
+}
+
+.modal-window__input:focus, .modal-window__textarea:focus{
+    outline: 0.4px solid #9D9D9D !important;
+    color: #959393 !important;
+}
+
+.form-room-edit__name:focus, .form-room-edit__temperature:focus, .form-room-edit__air:focus{
+    outline: none;
+}
+
+@media (max-width: 1433px) {
+    .container__account{
+        width: 65%;
+    }
+    .block-rooms, .block-advice, .block-requests, .block-queries{
+        width: 100%;
+    }
+
+    .advice__body, .request__body, .query__body{
+        width: 100%;
+    }
+}
+
+@media (max-width: 1380px) {
+    .container__account{
+        width: 55%;
+    }
+}
+
+@media (max-width: 1115px) {
+   .container__account{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+   }
+}
+
+@media (max-width: 720px) {
+   .account{
+    flex-direction: column;
+    align-items: center;
+   }
+
+   .account__info-user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+   }
+
+   .account__avatar{
+    margin-right: 0;
+   }
+
+   .account__description{
+    text-align: center;
+   }
+}
+@media (max-width: 500px) {
+    .header, .header-advice{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 430px) {
+   .content__body{
+      width: 100%;
+   }
+   .form-room-edit{
+    display: flex;
+    flex-direction: column;
+   }
+   .form-room-edit__button{
+    margin-left: auto;
+    margin-right: auto;
+   }
+}
+
+@media (max-width: 330px) {
+   .account__user-change{
+    width: 100%;
+   }
+}

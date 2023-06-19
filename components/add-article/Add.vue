@@ -1,11 +1,14 @@
 <template>
     <section>
      <div class="container-edit">
-        <div class="catalog__block-link">
-          <img src="~assets/images/icons/strelka.png" alt="">
-          <NuxtLink to="/account" class="catalog__link">Обратно к профилю</NuxtLink>
+        <div class="catalog__block-link yes">
+          <div>
+            <img src="~assets/images/icons/strelka.png" alt="">
+            <NuxtLink to="/account" class="catalog__link">Обратно к профилю</NuxtLink>
+          </div>
+          <b-button class="rules" v-b-modal.modal>Памятка</b-button>
         </div>
-        <h1 class="catalog__title roro">Отправить статью</h1>
+        <h1 class="catalog__title send-article">Отправить статью</h1>
         <div class="form-add">
             <input class="form-add__name" 
                 type="text" 
@@ -15,6 +18,21 @@
             <textarea class="form-add__description" id="description" placeholder="Введите содержание статьи" v-model="content" autocorrect="on"></textarea>
             <button class="form-add__button-save" type="button" @click="addQuery()">Отправить</button>
         </div>
+        <b-modal id="modal" hide-footer content-class="modal-window">
+          <div class="modal-window__body">
+            <p class="my-4 modal-window__title">Памятка</p>
+            <p class="modal-window__text">Созданная автором статья перед ее опубликованием проверяется по следующим параметрам:</p>
+            <span class="p">
+              - оригинальность (учитывается в процентах); 
+            </span>
+            <span class="p">
+              - количество знаков в Статье. Минимальное количество знаков в одной Статье – 100 символов с пробелами. Статья, содержащая менее 100 символов с пробелами не может быть опубликована;
+            </span>
+            <span class="p">
+              - наличие нецензурной лексики. Слова из нецензурной лексики не дают возможности сохранить и опубликовать статью.
+            </span>
+          </div>
+        </b-modal>
      </div>
     </section>
 </template>
@@ -43,118 +61,5 @@ export default {
 </script>
 
 <style scoped>
-.container-edit{
-    width: 1000px;
-    height: auto;
-    margin-top: 90px;
-    margin-left: 475px;
-    position: relative;
-    z-index: 1;
-}
 
-.roro{
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 85.5%;
-  letter-spacing: 0.4px;
-  color: #000000;
-  position: relative;
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
-
-.form-add{
-    width: 900px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    margin-bottom: 30px;
-}
-
-.form-add__name{
-    position: relative;
-    box-sizing: border-box;
-    height: 43px;
-    width: 100%;
-    background: transparent;
-    padding-left: 19px;
-    border: none;
-    border-bottom: 0.5px solid #8FB377;
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
-    font-size: 16px;
-    line-height: 110%;
-    letter-spacing: -1px;
-    color: #656262;
-}
-.form-add__name:focus, .form-add__description:focus{
-    outline: none;
-}
-
-.form-add__description{
-    resize: none;
-    border: none;
-    border-bottom: 0.5px solid #8FB377;
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.05);
-    min-height: 383px;
-    background: transparent;
-    font-size: 16px;
-    line-height: 110%;
-    letter-spacing: -1px;
-    color: #656262;
-    padding-left: 19px;
-    overflow-y:scroll;
-}
-
-.form-add__button-save{
-    width: 200px;
-    height: 40px;
-    transition: all 0.5s;
-    background: #8FB377;
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 15px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 99.5%;
-    letter-spacing: 0.4px;
-    border: none;
-    margin-top: 45px;
-    color: #FFFFFF;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.form-add__button-save:hover{
-    background: #768A68;
-    transition: all 0.5s;
-}
-
-.catalog__link{
-  color: #979CAE;
-}
-
-@media (max-width: 1433px) {
-  .container-edit{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
- }
- .form-add{
-  width: 100%;
- }
-}
-
-@media (max-width: 768px) {
-    .container-edit{
-      margin-top: 100px;
-    }
-}
-
-
-@media (max-width: 330px) {
-  .roro{
-    text-align: center;
-  }
-}
 </style>

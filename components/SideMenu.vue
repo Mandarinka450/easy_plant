@@ -26,6 +26,7 @@
                             </svg>
                             Главная
                         </NuxtLink>
+                        <div class="block__new-green" v-if="reminders[0]"></div>
                    </li>
                    <li>
                         <NuxtLink to="/my-plants" class="block__link">
@@ -71,6 +72,14 @@ export default {
         body: true,
       },
     ],
+  },
+  computed: {
+    reminders() {
+      return this.$store.getters.REMINDERS
+    },
+  },
+  created() {
+    this.$store.dispatch('getReminders');
   },
   methods: {
     goToCatalog() {

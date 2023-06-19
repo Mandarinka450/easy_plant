@@ -1,3 +1,35 @@
+.show-message{
+    opacity: 1 !important;
+    transition: 0.5s;
+}
+
+.card-plants__message, .block-rooms__message{
+    opacity: 0;
+    width: 80%;
+    height: 50px;
+    background: rgba(143, 178, 119, 0.3);
+    color: #768A68;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 15px;
+    padding: 10px;
+    vertical-align: middle;
+    transition: 0.5s;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.block__new-green{
+    position: absolute;
+    right: 58px;
+    top: 0;
+    height: 12px;
+    width: 12px;
+    background-color: #8FB377;
+    border-radius: 100%;
+}
+
 .wrapper-menu{
     top: 0;
     position: fixed;
@@ -90,6 +122,7 @@ li{
 }
 .block__content{
     padding-left: 0;
+    position: relative;
 }
 a.nuxt-link-active {
   color: black;

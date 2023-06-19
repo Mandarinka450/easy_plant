@@ -28,12 +28,21 @@ export default {
     '~/assets/css/myplant.css',
     '~/assets/css/plants.css',
     '~/assets/css/plant.css',
+    '~/assets/css/edit.css',
+    '~/assets/css/user.css',
+    '~/assets/css/categories.css',
+    '~/assets/css/add-article.css',
+    '~/assets/css/laws.css',
+    '~/assets/css/idlaws.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/bootstrap-vue',
-    
+    { 
+      src: '~/plugins/vuelidate.js',
+      mode: 'both', 
+    },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

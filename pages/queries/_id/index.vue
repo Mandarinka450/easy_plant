@@ -9,6 +9,7 @@
 import IdQuery from '../../../components/queries/IdQuery.vue'
 export default {
   components: { IdQuery },
-  name: 'IdQueryPage'
+  name: 'IdQueryPage',
+  middleware: 'admin',
 }
 </script>
